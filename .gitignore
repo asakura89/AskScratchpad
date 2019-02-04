@@ -300,8 +300,11 @@ pip-log.txt
 #Translations
 *.mo
 
-#cake
+# Cake
 tools/
 
-# custom
+# Custom
+cakebuild-log.txt
 build-log.txt
+*-log.txt
+*log.txt

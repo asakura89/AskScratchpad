@@ -1,5 +1,4 @@
-#tool nuget:?package=Newtonsoft.Json&version=10.0.3
-#r tools/newtonsoft.json.10.0.3/Newtonsoft.Json/lib/net45/Newtonsoft.Json.dll
+#l "ask-common.cake"
 
 using System;
 using System.Collections;
@@ -232,17 +231,6 @@ public static int Count(this IEnumerable source) {
 }
 
 #region : Main :
-
-String GetDataPath(String configfilename) =>
-    Context
-        .Environment
-        .WorkingDirectory
-        .Combine("data")
-        .Combine(configfilename)
-        .FullPath;
-
-void Dbg(Object obj) => Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented));
-void DbgCake(Object obj) => Information(Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented));
 
 Task("Main")
     .Does(() => {

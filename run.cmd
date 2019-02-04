@@ -44,7 +44,7 @@ goto :init
     cd ..
 
 :call-cake
-    rem %toolscake% %cakescript% --verbosity=Verbose > build-log.txt
+    echo Running Cake script ...
     %toolscake% %cakescript%
     goto :exit
 
