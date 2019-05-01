@@ -1,4 +1,4 @@
-#l "ask-common.cake"
+#l "Common.cake"
 
 using System;
 using System.Linq;
@@ -122,18 +122,5 @@ public static ActionResponseViewModel AsActionResponseViewModel(this Exception e
 
     return viewModel;
 }
-
-#endregion
-
-#region : Main :
-
-Task("Main")
-    .Does(() => {
-        Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-        Script();
-        Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    })
-    .ReportError(ex => Error(ex.Message));
-RunTarget("Main");
 
 #endregion

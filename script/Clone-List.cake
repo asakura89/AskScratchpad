@@ -1,9 +1,8 @@
-#l "ask-common.cake"
+#l "Common.cake"
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 
 void Script() {
     try {
@@ -26,7 +25,7 @@ void Script() {
         IList<String> clone = all.Where(item => true).ToList();
         all.Clear();
 
-        Console.WriteLine("All:");
+        Console.WriteLine("All Cleared:");
         Dbg(all);
 
         Console.WriteLine("Clone:");
@@ -48,7 +47,7 @@ void Script() {
         IList<String> filter = all.Where(item => item.Substring(0, 2) == "00").ToList();
         all.Clear();
 
-        Console.WriteLine("All:");
+        Console.WriteLine("All Cleared:");
         Dbg(all);
 
         Console.WriteLine("Filter:");
@@ -58,16 +57,3 @@ void Script() {
         Dbg(ex);
     }
 }
-
-#region : Main :
-
-Task("Main")
-    .Does(() => {
-        Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-        Script();
-        Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    })
-    .ReportError(ex => Error(ex.Message));
-RunTarget("Main");
-
-#endregion

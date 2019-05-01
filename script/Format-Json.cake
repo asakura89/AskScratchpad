@@ -1,19 +1,10 @@
-#tool nuget:?package=Newtonsoft.Json&version=10.0.3
-#r ../tools/newtonsoft.json.10.0.3/Newtonsoft.Json/lib/net45/Newtonsoft.Json.dll
+#l "Common.cake"
 
 using System;
 
-Task("Main")
-    .Does(() => {
-        Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-        
-        Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(GetApprLvs(), Newtonsoft.Json.Formatting.Indented));
-
-        Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    })
-    .ReportError(ex => Error(ex.Message));
-RunTarget("Main");
-
+void Script() {
+    Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(GetApprLvs(), Newtonsoft.Json.Formatting.Indented));
+}
 
 public sealed class WfApprovalLevelViewModel {
     public Int32 DataNo { get; set; }
