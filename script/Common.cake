@@ -47,6 +47,7 @@ public static String GetExceptionMessage(this Exception ex) {
 
     return errorList
         .AppendLine(ex.Message)
+        .AppendLine(ex.StackTrace)
         .ToString();
 }
 
