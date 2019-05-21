@@ -45,6 +45,22 @@ $menuList = @(
     @{
         Name = "System Path"
         Value = "C:\\Windows\\System32\\SystemPropertiesAdvanced.exe"
+    },
+    @{
+        Name = "Certificate Manager CurrentUser"
+        Value = "certmgr.msc"
+    },
+    @{
+        Name = "Certificate Manager LocalMachine"
+        Value = "certlm.msc"
+    },
+    @{
+        Name = "Event Viewer"
+        Value = "eventvwr.msc"
+    },
+    @{
+        Name = "Services"
+        Value = "services.msc"
     }
 )
 
