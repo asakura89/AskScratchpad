@@ -28,7 +28,11 @@ namespace CSScratchpad {
                 new CompareSingletonAndTransient(),
                 new CountDecimalPlaces(),
                 new CombineFiles(),
-                new DisectCakeBuild()
+                new DisectCakeBuild(),
+                new CompareAsAndIs(),
+                new PrintAssemblyVersion(),
+                new Base64UrlAndJwtBase64(),
+                new BartSimpson()
             }
             .Last()
             .Run();

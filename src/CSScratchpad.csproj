@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common.cs" />
+    <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
+    <Compile Include="Script\CompareAsAndIs.cs" />
+    <Compile Include="Script\BartSimpson.cs" />
+    <Compile Include="Script\PrintAssemblyVersion.cs" />
     <Compile Include="Script\DisectCakeBuild.cs" />
     <Compile Include="Script\CloneList.cs" />
     <Compile Include="Script\CleanUrl.cs" />

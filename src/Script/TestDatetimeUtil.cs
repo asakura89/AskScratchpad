@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 
 namespace CSScratchpad.Script {
     public class TestDatetimeUtil : Common, IRunnable {

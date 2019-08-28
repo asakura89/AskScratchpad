@@ -13,12 +13,49 @@ using System.Text.RegularExpressions;
 namespace CSScratchpad.Script {
     public class DisectCakeBuild : Common, IRunnable {
         public void Run() {
-            Console.WriteLine("Yuhuuu");
-            Console.WriteLine("Yuhuuu");
+            String rootDir = new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\")).LocalPath;
+
+            Dbg("SolutionParser",
+                new SolutionParser().Parse(Path.Combine(rootDir, "CSScratchpad.sln"))
+            );
+
+            Dbg("AssemblyInfoParser",
+                new AssemblyInfoParser().Parse(new Uri(Path.Combine(rootDir, ".\\Properties\\AssemblyInfo.cs")).LocalPath)
+            );
+
+            var ffp = new FilePath("../../CSScratchpad.sln");
+
+            Dbg("ffp (Cake's FilePath)", ffp);
+
+            DirectoryPath publishDir = ffp
+                .GetDirectory()
+                .Combine("Publish");
+
+            Dbg("publishDir (Cake's DirectoryPath)", publishDir);
+
+            Dbg("Absolute publish dir 1 (Cake's DirectoryPath)", publishDir.MakeAbsolute(new FilePath(new Uri(Path.Combine(rootDir, ".\\Properties\\AssemblyInfo.cs")).LocalPath).GetDirectory()));
+            Dbg("Absolute publish dir 2 (Cake's DirectoryPath)", publishDir.MakeAbsolute(new DirectoryPath(rootDir)));
+            Dbg("Absolute publish dir 3 (Cake's DirectoryPath)", publishDir.MakeAbsolute(new FilePath(rootDir).GetDirectory()));
+
+            var buildInfo = new List<(String, String)>{
+                ("v3.5", $"{ffp.GetDirectory().FullPath}/build/net35"),
+                ("v4.0", $"{ffp.GetDirectory().FullPath}/build/net40"),
+                ("v4.5", $"{ffp.GetDirectory().FullPath}/build/net45")
+            };
+
+            Dbg("buildInfo", buildInfo);
+
+            Dbg("buildInfo FilePath",
+                buildInfo
+                    .Select(tuple => new FilePath(tuple.Item2))
+            );
         }
     }
 
-    #region : yuhuu :
+    // NOTE: Cake, AssemblyInfoParser and SolutionParser use MIT License
+    // see LICENSE-CakeBuild on this project root
+
+    #region : AssemblyInfoParser and SolutionParser :
 
     public sealed class AssemblyInfoSettings {
         /// <summary>
@@ -560,7 +597,7 @@ namespace CSScratchpad.Script {
             }
         }
 
-        Path IFileSystemInfo.Path => Path;
+        CakeContextPath IFileSystemInfo.Path => Path;
 
         public Boolean Exists => _file.Exists;
 
@@ -599,7 +636,7 @@ namespace CSScratchpad.Script {
     internal sealed class CakeContextDirectory : IDirectory, IFileSystemInfo {
         private readonly DirectoryInfo _directory;
 
-        Path IFileSystemInfo.Path => Path;
+        CakeContextPath IFileSystemInfo.Path => Path;
 
         public Boolean Exists => _directory.Exists;
 
@@ -711,12 +748,12 @@ namespace CSScratchpad.Script {
         /// Gets the path to the entry.
         /// </summary>
         /// <value>The path.</value>
-        Path Path {
+        CakeContextPath Path {
             get;
         }
     }
 
-    public sealed class FilePath : Path {
+    public sealed class FilePath : CakeContextPath {
         /// <summary>
         /// Gets a value indicating whether this path has a file extension.
         /// </summary>
@@ -855,7 +892,7 @@ namespace CSScratchpad.Script {
         }
     }
 
-    public abstract class Path {
+    public abstract class CakeContextPath {
         private static readonly Char[] _invalidPathCharacters;
 
         /// <summary>
@@ -884,17 +921,17 @@ namespace CSScratchpad.Script {
             get;
         }
 
-        static Path() {
+        static CakeContextPath() {
             Char[] invalidPathChars = System.IO.Path.GetInvalidPathChars();
             Char[] chrArray = new Char[] { '*', '?' };
-            Path._invalidPathCharacters = ((IEnumerable<Char>) invalidPathChars).Concat<Char>((IEnumerable<Char>) chrArray).ToArray<Char>();
+            CakeContextPath._invalidPathCharacters = ((IEnumerable<Char>) invalidPathChars).Concat<Char>((IEnumerable<Char>) chrArray).ToArray<Char>();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Cake.Core.IO.Path" /> class.
         /// </summary>
         /// <param name="path">The path.</param>
-        protected Path(String path) {
+        protected CakeContextPath(String path) {
             if (path == null) {
                 throw new ArgumentNullException("path");
             }
@@ -904,7 +941,7 @@ namespace CSScratchpad.Script {
             String str = path;
             for (Int32 i = 0; i < str.Length; i++) {
                 Char chr = str[i];
-                if (Path._invalidPathCharacters.Contains<Char>(chr)) {
+                if (CakeContextPath._invalidPathCharacters.Contains<Char>(chr)) {
                     throw new ArgumentException(String.Format(CultureInfo.InvariantCulture, "Illegal characters in path ({0}).", chr), "path");
                 }
             }
@@ -1117,7 +1154,7 @@ namespace CSScratchpad.Script {
         OSX
     }
 
-    public sealed class DirectoryPath : Path {
+    public sealed class DirectoryPath : CakeContextPath {
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Cake.Core.IO.DirectoryPath" /> class.
         /// </summary>
@@ -1252,7 +1289,7 @@ namespace CSScratchpad.Script {
     }
 
     internal static class PathCollapser {
-        public static String Collapse(Path path) {
+        public static String Collapse(CakeContextPath path) {
             if (path == null) {
                 throw new ArgumentNullException("path");
             }
@@ -1310,7 +1347,7 @@ namespace CSScratchpad.Script {
 
     #endregion
 
-    #region : yuhuu 2 :
+    #region : Cake (Modified) :
 
     /// <summary>Represents the environment Cake operates in.</summary>
     public sealed class CakeEnvironment : ICakeEnvironment {
