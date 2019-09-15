@@ -136,16 +136,16 @@ namespace CSScratchpad.Script {
                 new {
                     DateCompareToPureString = new {
                         DataList = new List<SamplePOCO> {
-                    new SamplePOCO {
-                        Type = "Type1",
-                        EffectiveDate = new DateTime(2014, 1, 1),
-                        EndDate = new DateTime(1, 1, 1)
-                    },
-                    new SamplePOCO {
-                        Type = "Type2",
-                        EffectiveDate = new DateTime(2014, 1, 1),
-                        EndDate = new DateTime(2014, 2, 28)
-                    }
+                            new SamplePOCO {
+                                Type = "Type1",
+                                EffectiveDate = new DateTime(2014, 1, 1),
+                                EndDate = new DateTime(1, 1, 1)
+                            },
+                            new SamplePOCO {
+                                Type = "Type2",
+                                EffectiveDate = new DateTime(2014, 1, 1),
+                                EndDate = new DateTime(2014, 2, 28)
+                            }
                         }
 
                         // F! I can't think a simpler way.

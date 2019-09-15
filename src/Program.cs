@@ -28,6 +28,8 @@ namespace CSScratchpad {
                 new CompareSingletonAndTransient(),
                 new CountDecimalPlaces(),
                 new CombineFiles(),
+                new ReadAppConfigSection(),
+                new ChangeAspMembershipPassword(),
                 new DisectCakeBuild(),
                 new CompareAsAndIs(),
                 new PrintAssemblyVersion(),

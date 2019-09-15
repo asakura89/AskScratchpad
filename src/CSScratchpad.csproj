@@ -37,7 +37,10 @@
       <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,8 +51,10 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
+    <Compile Include="Script\ReadAppConfigSection.cs" />
     <Compile Include="Script\CompareAsAndIs.cs" />
     <Compile Include="Script\BartSimpson.cs" />
+    <Compile Include="Script\ChangeAspMembershipPassword.cs" />
     <Compile Include="Script\PrintAssemblyVersion.cs" />
     <Compile Include="Script\DisectCakeBuild.cs" />
     <Compile Include="Script\CloneList.cs" />
