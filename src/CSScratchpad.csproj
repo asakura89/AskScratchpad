@@ -51,6 +51,10 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
+    <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\PrintSimpleHashPassword.cs" />
+    <Compile Include="Script\GetProperties.cs" />
+    <Compile Include="Script\SimpleStickyNotesDatetimeFromFloat.cs" />
     <Compile Include="Script\ReadAppConfigSection.cs" />
     <Compile Include="Script\CompareAsAndIs.cs" />
     <Compile Include="Script\BartSimpson.cs" />

@@ -23,6 +23,8 @@ namespace CSScratchpad {
                 new CloneList(),
                 new CountCharacter(),
                 new TestDatetimeUtil(),
+                new SimpleStickyNotesDatetimeFromFloat(),
+                new GetProperties(),
                 new FormatJson(),
                 new FormatJson2(),
                 new CompareSingletonAndTransient(),
@@ -34,7 +36,9 @@ namespace CSScratchpad {
                 new CompareAsAndIs(),
                 new PrintAssemblyVersion(),
                 new Base64UrlAndJwtBase64(),
-                new BartSimpson()
+                new BartSimpson(),
+                new PrintSimpleHashPassword(),
+                new AnalyzeHex()
             }
             .Last()
             .Run();

@@ -304,6 +304,52 @@ namespace CSScratchpad.Script {
                         })
                 }
             );
+
+            /** ──────────────────────────────────────────────────────────────────────────────── */
+
+            // NOTE: Datetime leap  year
+
+            Dbg(
+                // Actual Date is 01.01.2014
+                // Excel Bug
+                new DateTime(1900, 1, 1)
+                    .AddDays(41640)
+                    .ToString("dd.MM.yyyy")
+            );
+
+            Dbg(
+                // Actual Date is 28.02.2014
+                // Excel Bug
+                new DateTime(1900, 1, 1)
+                    .AddDays(41698)
+                    .ToString("dd.MM.yyyy")
+            );
+
+            // still incorrect
+            Dbg(CalculateLeapYearCount(2018, 1900));
+
+            Dbg(
+                new DateTime(1900, 1, 1)
+                    .AddDays(41640 - 2)
+                    .ToString("dd.MM.yyyy")
+            );
+
+            Dbg(
+                new DateTime(1900, 1, 1)
+                    .AddDays(41698 - 2)
+                    .ToString("dd.MM.yyyy")
+            );
+        }
+
+        Int32 CalculateLeapYearCount(Int32 year, Int32 startingYear) {
+            Int32 min = Math.Min(year, startingYear);
+            Int32 max = Math.Max(year, startingYear);
+            Int32 counter = 0;
+            for (Int32 i = min; i < max; i++)
+                if ((i % 4 == 0 && i % 100 != 0) || i % 400 == 0)
+                    counter = counter + 1;
+
+            return counter;
         }
     }
 
