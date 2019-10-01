@@ -52,6 +52,8 @@
     <Compile Include="Common.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\FormatJson3.cs" />
+    <Compile Include="Script\GenerateMD5Base64.cs" />
     <Compile Include="Script\PrintSimpleHashPassword.cs" />
     <Compile Include="Script\GetProperties.cs" />
     <Compile Include="Script\SimpleStickyNotesDatetimeFromFloat.cs" />
