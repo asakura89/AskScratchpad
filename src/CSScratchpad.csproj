@@ -52,6 +52,8 @@
     <Compile Include="Common.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\CheckPath.cs" />
+    <Compile Include="Script\CombineUrl.cs" />
     <Compile Include="Script\FormatJson3.cs" />
     <Compile Include="Script\GenerateMD5Base64.cs" />
     <Compile Include="Script\PrintSimpleHashPassword.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Script\CompareSingletonAndTransient.cs" />
     <Compile Include="Script\FormatJson2.cs" />
     <Compile Include="Script\FormatJson.cs" />
+    <Compile Include="Script\TestAllAboutArray.cs" />
     <Compile Include="Script\TestDatetimeUtil.cs" />
     <Compile Include="Script\FindDuplicates.cs" />
     <Compile Include="Script\FindFiles.cs" />
