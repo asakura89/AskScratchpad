@@ -32,6 +32,7 @@ namespace CSScratchpad {
                 new GenerateToken(),
                 new GetProperties(),
                 new PrintAssemblyVersion(),
+                new PrintLookup(),
                 new PrintSimpleHashPassword(),
                 new PrintTodoList(),
                 new PrintUri(),
@@ -42,7 +43,8 @@ namespace CSScratchpad {
                 new TestArvy(),
                 new TestDatetimeUtil(),
                 new TestExy(),
-                new TestVarya()
+                new TestVarya(),
+                new ZipStructureViewer()
             }
             .Last()
             .Run();

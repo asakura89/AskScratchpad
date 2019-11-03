@@ -39,6 +39,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +55,9 @@
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
     <Compile Include="Script\CheckPath.cs" />
+    <Compile Include="Script\CombineXml.cs" />
+    <Compile Include="Script\PrintLookup.cs" />
+    <Compile Include="Script\ZipStructureViewer.cs" />
     <Compile Include="Script\CombineUrl.cs" />
     <Compile Include="Script\FormatJson3.cs" />
     <Compile Include="Script\GenerateMD5Base64.cs" />
