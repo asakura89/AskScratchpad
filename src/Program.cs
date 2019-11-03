@@ -32,6 +32,7 @@ namespace CSScratchpad {
                 new GenerateToken(),
                 new GetProperties(),
                 new PrintAssemblyVersion(),
+                new PrintFromFile(),
                 new PrintLookup(),
                 new PrintSimpleHashPassword(),
                 new PrintTodoList(),
@@ -43,6 +44,7 @@ namespace CSScratchpad {
                 new TestArvy(),
                 new TestDatetimeUtil(),
                 new TestExy(),
+                new TestPOCOBuilder(),
                 new TestVarya(),
                 new ZipStructureViewer()
             }
