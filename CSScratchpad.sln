@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSScratchpad", "CSScratchpad\CSScratchpad.csproj", "{DC040309-DFA1-498E-885B-C901AFB76BC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{CA3619B1-C77B-4AC8-AAE4-3492C6EF1269}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC040309-DFA1-498E-885B-C901AFB76BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC040309-DFA1-498E-885B-C901AFB76BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC040309-DFA1-498E-885B-C901AFB76BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC040309-DFA1-498E-885B-C901AFB76BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA3619B1-C77B-4AC8-AAE4-3492C6EF1269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA3619B1-C77B-4AC8-AAE4-3492C6EF1269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA3619B1-C77B-4AC8-AAE4-3492C6EF1269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA3619B1-C77B-4AC8-AAE4-3492C6EF1269}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F34E4D4F-239D-446B-B057-14FCFED4DEC8}
+	EndGlobalSection
+EndGlobal
