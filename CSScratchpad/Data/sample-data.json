@@ -1,0 +1,18 @@
+{
+  "config.var": [{
+    "name": "AppShortFirstName",
+    "value": "Web"
+  },
+  {
+    "name": "AppShortLastName",
+    "value": "App"
+  },
+  {
+    "name": "CompanyName",
+    "value": "AiuraNetLab"
+  },
+  {
+    "name": "ConnStringName",
+    "value": "Core"
+  }]
+}
