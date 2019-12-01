@@ -19,6 +19,7 @@ namespace CSScratchpad {
                 // new CombineXml(), // [NEED TO BE FIXED]
                 new CompareAsAndIs(),
                 new CompareSingletonAndTransient(),
+                new CompareString(),
                 new ConvertToPascalCase(),
                 new CountCharacter(),
                 new CountDecimalPlaces(),
@@ -35,6 +36,7 @@ namespace CSScratchpad {
                 new GenerateToken(),
                 new GetProperties(),
                 new PrintAssemblyVersion(),
+                new PrintCharCode(),
                 new PrintFromFile(),
                 new PrintLookup(),
                 new PrintPatchedJson(),
@@ -49,8 +51,10 @@ namespace CSScratchpad {
                 new TestArvy(),
                 new TestDatetimeUtil(),
                 new TestExy(),
+                new TestMaaya(),
                 new TestNvy(),
                 new TestPOCOBuilder(),
+                new TestSecurity(),
                 new TestVarya(),
                 new ZipStructureViewer()
             }

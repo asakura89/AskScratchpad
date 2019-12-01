@@ -37,6 +37,19 @@ namespace CSScratchpad.Script {
 
             /** ──────────────────────────────────────────────────────────────────────────────── */
 
+            // NOTE: Time span
+
+            Dbg(
+                new {
+                    TimeSpan1 = new TimeSpan(0, 0, 0, 200),
+                    TimeSpan2 = new TimeSpan(0, 0, 63, 59),
+                    TimeSpan3 = new TimeSpan(0, 25, 45, 0),
+                    TimeSpan4 = new TimeSpan(22, 25, 63, 200)
+                }
+            );
+
+            /** ──────────────────────────────────────────────────────────────────────────────── */
+
             // NOTE: Overtime Calculation
 
             const String SimpleDateTimeFormat = "dd.MM.yyyy hh:mm tt";
