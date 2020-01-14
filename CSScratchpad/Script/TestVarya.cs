@@ -4,10 +4,13 @@ using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Security.AntiXss;
 using Scratch;
 
 namespace CSScratchpad.Script {
@@ -39,7 +42,7 @@ namespace CSScratchpad.Script {
                     </div>
                 </div>";
 
-            IDictionary<String, String> replacements = new Dictionary<String, String> {
+            IDictionary<String, String> replacementDict = new Dictionary<String, String> {
                 ["Day"] = new Func<String>(() => DateTime.Now.DayOfWeek.ToString())(),
                 ["Date"] = new Func<String>(() => DateTime.Now.ToString("dd MMMM yyyy"))(),
                 ["ForecastUrl"] = "https://weather-info.fake-api.io",
@@ -50,13 +53,24 @@ namespace CSScratchpad.Script {
                 ["HighForecastedPollutantIndex"] = "13.0"
             };
 
-            Console.WriteLine(StringExt.ReplaceWith(template, replacements));
+            Dbg("ReplaceWithDictionary", StringExt.ReplaceWithDictionary(template, replacementDict));
 
+            var replacementObj = new Replacement {
+                Day = new Func<String>(() => DateTime.Now.DayOfWeek.ToString())(),
+                Date = new Func<String>(() => DateTime.Now.ToString("dd MMMM yyyy"))(),
+                ForecastUrl = "https://weather-info.fake-api.io",
+                LowForcastedTemp = "27",
+                HighForecastedTemp = "36",
+                HazeUrl = "https://haze-info.fake-api.io",
+                LowForecastedPollutantIndex = "11.7",
+                HighForecastedPollutantIndex = "13.0"
+            };
 
-            replacements = new Dictionary<String, String> { ["Name"] = "Mike" };
+            Dbg("ReplaceWithObject", StringExt.ReplaceWith(template, replacementObj));
 
+            replacementDict = new Dictionary<String, String> { ["Name"] = "Mike" };
             template = "Hello ${Name}, how do you do?";
-            String replaced = StringExt.ReplaceWith(template, replacements);
+            String replaced = StringExt.ReplaceWithDictionary(template, replacementDict);
 
             if (String.IsNullOrEmpty(replaced))
                 throw new InvalidOperationException("Test failed");
@@ -67,11 +81,10 @@ namespace CSScratchpad.Script {
             if (!replaced.Equals("Hello Mike, how do you do?", StringComparison.InvariantCultureIgnoreCase))
                 throw new InvalidOperationException("Test failed");
 
-            Console.WriteLine(replaced);
-
+            Dbg(replaced);
 
             template = ConfigurationManager.AppSettings.Get("Api.Url") ?? String.Empty;
-            replaced = StringExt.ReplaceWith(template, new Dictionary<String, String>());
+            replaced = StringExt.Resolve(template);
 
             if (String.IsNullOrEmpty(replaced))
                 throw new InvalidOperationException("Test failed");
@@ -79,36 +92,162 @@ namespace CSScratchpad.Script {
             if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
                 throw new InvalidOperationException("Test failed");
 
-            Console.WriteLine(replaced);
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Timeout") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.RepeatInterval") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.RetryInterval") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_1") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_2") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_3") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_4") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_5") ?? String.Empty;
+            replaced = StringExt.Resolve(template);
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
+
+            template = ConfigurationManager.AppSettings.Get("Http.Payload_6") ?? String.Empty;
+            replaced = StringExt.ReplaceWithDictionary(template, new Dictionary<String, String> { ["Name"] = "Mike" });
+
+            if (String.IsNullOrEmpty(replaced))
+                throw new InvalidOperationException("Test failed");
+
+            if (template.Equals(replaced, StringComparison.InvariantCultureIgnoreCase))
+                throw new InvalidOperationException("Test failed");
+
+            Dbg(replaced);
         }
+
+        #region :: Replacement Class ::
+
+        public class Replacement {
+            public String Day { get; set; }
+            public String Date { get; set; }
+            public String ForecastUrl { get; set; }
+            public String LowForcastedTemp { get; set; }
+            public String HighForecastedTemp { get; set; }
+            public String HazeUrl { get; set; }
+            public String LowForecastedPollutantIndex { get; set; }
+            public String HighForecastedPollutantIndex { get; set; }
+        }
+
+        #endregion
 
         #region :: VaryaExt ::
 
         public static class StringExt {
-            public static String ReplaceWith(String string2Replace, IDictionary<String, String> replacements) =>
-            Regex.Replace(
-                string2Replace,
-                @"\$\{(?<key>[a-zA-Z0-9\\.\\-\\_]*)(:(?<value>[a-zA-Z0-9\\.\\-\\_]*))?\}",
-                match => HandleRegex(match, replacements),
-                RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.Multiline);
+            //const String MainRegex = @"\$\{(?<key>[a-zA-Z0-9\\.\\-\\_]*)(:(?<value>[a-zA-Z0-9\\.\\-\\_\s]*))?\}";
+            const String MainRegex = @"\$\{(?<key>[a-zA-Z0-9\.\-\\_]*)(:(?<value>[^\{\}]+))?\}";
+
+            public static String Resolve(String string2Resolve) => ReplaceWithDictionary(string2Resolve, new Dictionary<String, String>());
+
+            public static String ReplaceWith<TReplace>(String string2Replace, TReplace replacements) where TReplace : class, new() =>
+                ReplaceWithDictionary(
+                    string2Replace,
+                    replacements
+                        .GetType()
+                        .GetProperties(BindingFlags.Instance | BindingFlags.Public)
+                        .ToDictionary(prop => prop.Name, prop => Convert.ToString(prop.GetValue(replacements, null)))
+                );
+
+            public static String ReplaceWithDictionary(String string2Replace, IDictionary<String, String> replacements) {
+                String result = Regex.Replace(
+                    string2Replace,
+                    MainRegex,
+                    match => HandleRegex(match, replacements),
+                    RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.Multiline);
+
+                Match containsExpressionMatch = Regex.Match(result, MainRegex, RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.Multiline);
+                if (containsExpressionMatch.Success)
+                    return ReplaceWithDictionary(result, replacements);
+
+                return result;
+            }
 
             static String HandleRegex(Match match, IDictionary<String, String> replacements) {
                 String key = match.Groups["key"].Value;
                 String value = match.Groups["value"].Value;
-                if (!String.IsNullOrEmpty(key)) {
-                    if (!(value == null || value.All(Char.IsWhiteSpace))) {
-                        switch (key) {
-                            case "config":
-                                return HandleConfig(value, replacements);
-                            case "econfig":
-                                return HandleEncryptedConfig(value, replacements);
-                            case "var":
-                                return HandleVar(value);
-                            default:
-                                return String.Empty;
-                        }
-                    }
+                if (String.IsNullOrEmpty(key))
+                    return match.Value;
 
+                IEnumerable<String> operations = new[] { "config", "econfig", "var", "urle", "urld", "htmle", "htmld" };
+                if (!operations.Contains(key)) {
                     if (replacements == null)
                         return match.Value;
 
@@ -118,10 +257,33 @@ namespace CSScratchpad.Script {
                     return replacements.ContainsKey(key) ? replacements[key] : String.Empty;
                 }
 
-                return match.Value;
+                if (value == null)
+                    return String.Empty;
+
+                if (value.All(Char.IsWhiteSpace))
+                    return String.Empty;
+
+                switch (key) {
+                    case "config":
+                        return HandleConfig(value, replacements);
+                    case "econfig":
+                        return HandleEncryptedConfig(value, replacements);
+                    case "var":
+                        return HandleVar(value);
+                    case "urle":
+                        return HandleUrlEncode(value);
+                    case "urld":
+                        return HandleUrlDecode(value);
+                    case "htmle":
+                        return HandleHtmlEncode(value);
+                    case "htmld":
+                        return HandleHtmlDecode(value);
+                }
+
+                return String.Empty;
             }
 
-            static String HandleConfig(String configKey, IDictionary<String, String> replacements) => StringExt.ReplaceWith(ConfigurationManager.AppSettings.Get(configKey) ?? String.Empty, replacements);
+            static String HandleConfig(String configKey, IDictionary<String, String> replacements) => ReplaceWithDictionary(ConfigurationManager.AppSettings.Get(configKey) ?? String.Empty, replacements);
 
             static String HandleEncryptedConfig(String configKey, IDictionary<String, String> replacements) {
                 String config = HandleConfig(configKey, replacements);
@@ -131,12 +293,14 @@ namespace CSScratchpad.Script {
             static String HandleVar(String var) {
                 var variableRegexes = new Dictionary<String, String> {
                     ["Timespan"] = @"(?<digit>\d{1,})(?<type>[Dd]|[Hh]|[Mm]|[Ss])",
-                    ["Datetime"] = @"[Dd]ate[Tt]ime\((?<dtformat>\w*)\)"
+                    ["Datetime"] = @"[Dd]ate[Tt]ime\((?<dtformat>\w*)\)",
+                    ["BaseDir"] = "BaseDir"
                 };
 
                 var variableHandlers = new Dictionary<String, Func<Match, String>> {
                     ["Timespan"] = HandleTimespan,
-                    ["Datetime"] = HandleDatetime
+                    ["Datetime"] = HandleDatetime,
+                    ["BaseDir"] = HandleBaseDir
                 };
 
                 foreach (String key in variableRegexes.Keys) {
@@ -179,6 +343,16 @@ namespace CSScratchpad.Script {
 
                 return DateTime.Now.ToString(format);
             }
+
+            static String HandleBaseDir(Match match) => AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\');
+
+            static String HandleUrlEncode(String value) => AntiXssEncoder.UrlEncode(value).Replace("+", "%20");
+
+            static String HandleUrlDecode(String value) => HttpUtility.UrlDecode(value);
+
+            static String HandleHtmlEncode(String value) => AntiXssEncoder.HtmlEncode(value, true);
+
+            static String HandleHtmlDecode(String value) => HttpUtility.HtmlDecode(value);
         }
 
         #endregion
