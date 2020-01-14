@@ -50,6 +50,7 @@ namespace CSScratchpad {
                 new TestAllAboutArray(),
                 new TestArvy(),
                 new TestDatetimeUtil(),
+                new TestDecoratorPattern(),
                 new TestExy(),
                 new TestMaaya(),
                 new TestNvy(),
