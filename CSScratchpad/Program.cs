@@ -42,6 +42,7 @@ namespace CSScratchpad {
                 new PrintPatchedJson(),
                 new PrintRandomizedList(),
                 new PrintSimpleHashPassword(),
+                new PrintTable(),
                 new PrintTodoList(),
                 new PrintUri(),
                 new ReadAppConfigSection(),

@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -49,6 +50,7 @@
     <Compile Include="Script\CheckPath.cs" />
     <Compile Include="Script\CombineXml.cs" />
     <Compile Include="Script\CompareString.cs" />
+    <Compile Include="Script\PrintTable.cs" />
     <Compile Include="Script\RunCmd.cs" />
     <Compile Include="Script\PrintFromFile.cs" />
     <Compile Include="Script\PrintPatchedJson.cs" />

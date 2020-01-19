@@ -353,6 +353,31 @@ namespace CSScratchpad.Script {
                     .AddDays(41698 - 2)
                     .ToString("dd.MM.yyyy")
             );
+
+            /** ──────────────────────────────────────────────────────────────────────────────── */
+
+            // NOTE: Ago time
+
+            String format = "MM/dd/yyyy h:mm:ss tt";
+            Dbg(
+                new {
+                    DateTime1 = DateTime.ParseExact("05/10/2012 8:25:07 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime2 = DateTime.ParseExact("05/10/2012 7:12:08 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime3 = DateTime.ParseExact("05/10/2012 5:55:40 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime4 = DateTime.ParseExact("05/10/2012 5:55:40 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime5 = DateTime.ParseExact("12/25/2011 8:25:07 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime6 = DateTime.ParseExact("12/22/2010 8:25:07 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+                    DateTime7 = DateTime.ParseExact("12/22/2011 8:25:07 PM", format, CultureInfo.CurrentCulture).AsTimeAgo(),
+
+                    DateTime8 = DateTime.ParseExact("05/10/2012 8:25:07 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime9 = DateTime.ParseExact("05/10/2012 7:12:08 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime10 = DateTime.ParseExact("05/10/2012 5:55:40 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime11 = DateTime.ParseExact("05/10/2012 5:55:40 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime12 = DateTime.ParseExact("12/25/2011 8:25:07 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime13 = DateTime.ParseExact("12/22/2010 8:25:07 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo(),
+                    DateTime14 = DateTime.ParseExact("12/22/2011 8:25:07 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo()
+                }
+            );
         }
 
         Int32 CalculateLeapYearCount(Int32 year, Int32 startingYear) {
@@ -370,6 +395,102 @@ namespace CSScratchpad.Script {
     public static class DateTimeUtil {
         public static String GetTodayDayName() => DateTime.Now.DayOfWeek.ToString();
         public static String GetTodayDate() => DateTime.Now.Date.ToString("dd MMMM yyyy");
+
+        // http://www.dotnetperls.com/pretty-date
+        public static String AsTimeAgo(this DateTime date) {
+            // 1.
+            // Get time span elapsed since the date.
+            TimeSpan s = DateTime.Now.Subtract(date);
+
+            // 2.
+            // Get total number of days elapsed.
+            Int32 dayDiff = (Int32) s.TotalDays;
+
+            // 3.
+            // Get total number of seconds elapsed.
+            Int32 secDiff = (Int32) s.TotalSeconds;
+
+            // 4.
+            // Don't allow out of range values.
+            if (dayDiff < 0)
+                return date.ToString();
+
+            // 5.
+            // Handle same-day times.
+            if (dayDiff == 0) {
+                // A.
+                // Less than one minute ago.
+                if (secDiff < 60)
+                    return "just now";
+
+                // B.
+                // Less than 2 minutes ago.
+                if (secDiff < 120)
+                    return "1 minute ago";
+
+                // C.
+                // Less than one hour ago.
+                if (secDiff < 3600)
+                    return $"{Math.Floor((Double) secDiff / 60)} minutes ago";
+
+                // D.
+                // Less than 2 hours ago.
+                if (secDiff < 7200)
+                    return "1 hour ago";
+
+                // E.
+                // Less than one day ago.
+                if (secDiff < 86400)
+                    return $"{Math.Floor((Double) secDiff / 3600)} hours ago";
+            }
+
+            // 6.
+            // Handle previous days.
+            if (dayDiff == 1)
+                return "yesterday";
+
+            if (dayDiff < 7)
+                return $"{dayDiff} days ago";
+
+            if (dayDiff < 31)
+                return $"{Math.Ceiling((Double) dayDiff / 7)} weeks ago";
+
+            if (dayDiff < 365)
+                return $"{Math.Floor((Double) dayDiff / 30)} months ago";
+
+            if (dayDiff < 730)
+                return "1 year ago";
+
+            return $"{Math.Ceiling((Double) dayDiff / 365)} years ago";
+        }
+
+        // NOTE: find this source
+        public static String AsAnotherTimeAgo(this DateTime datetime) {
+            TimeSpan span = DateTime.Now.Subtract(datetime);
+            Double TotalMinutes = span.TotalMinutes;
+            String Suffix = " ago";
+
+            if (TotalMinutes < 0.0) {
+                TotalMinutes = Math.Abs(TotalMinutes);
+                Suffix = " from now";
+            }
+
+            var agoList = new SortedList<Double, Func<String>> {
+                { 0.75, () => "less than a minute" },
+                { 1.5, () => "about a minute" },
+                { 45, () => $"{Math.Round(TotalMinutes)} minutes" },
+                { 90, () => "about an hour" },
+                { 1440, () => $"about {Math.Round(Math.Abs(span.TotalHours))} hours" }, // 60 * 24
+                { 2880, () => "a day" }, // 60 * 48
+                { 43200, () => $"{Math.Floor(Math.Abs(span.TotalDays))} days" }, // 60 * 24 * 30
+                { 86400, () => "about a month" }, // 60 * 24 * 60
+                { 525600, () => $"{Math.Floor(Math.Abs(span.TotalDays / 30))} months" }, // 60 * 24 * 365 
+                { 1051200, () => "about a year" }, // 60 * 24 * 365 * 2
+                { Double.MaxValue, () => $"{Math.Floor(Math.Abs(span.TotalDays / 365))} years" }
+            };
+
+            return agoList.First(n => TotalMinutes < n.Key).Value.Invoke() + Suffix;
+        }
     }
 
     public sealed class SamplePOCO {
