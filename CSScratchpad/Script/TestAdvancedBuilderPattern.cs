@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Scratch;
 
 namespace CSScratchpad.Script {
     class TestAdvancedBuilderPattern : Common, IRunnable {
-
-        // NOTE: Exy already added in Common.cs
         public void Run() {
             Console.WriteLine("Start.");
             Dbg(
@@ -118,6 +117,22 @@ namespace CSScratchpad.Script {
             #endregion
 
             Console.WriteLine("Done.");
+
+            Console.WriteLine(String.Empty);
+            Dbg("Base Type",
+                new {
+                    BaseType1 = BaseTypeImpl.Get("hello"),
+                    BaseType2 = BaseTypeImpl.Get("87246877"),
+                    BaseType3 = BaseTypeImpl.Get("hello9834789"),
+                    BaseType4 = BaseTypeImpl.Get("98ir739"),
+                    BaseType5 = BaseTypeImpl.Get("97983347.9479"),
+                    BaseType6 = BaseTypeImpl.Get("hello9873498.0934987"),
+
+                    AppvRule1 = new ApproverRule { Id = "15", RegistrationNo = "08362549" }.AsRuleData(),
+                    AppvRule2 = new ApproverRule { Id = "16", RegistrationNo = "07463528" }.AsRuleData(),
+                    AppvRule3 = new ApproverRule { Id = "25", RegistrationNo = "06492649" }.AsRuleData()
+                }
+            );
         }
     }
 
@@ -386,6 +401,57 @@ namespace CSScratchpad.Script {
     public class NullDisp : IActionDispatcher { }
 
     public class BaseType { }
+
+    #endregion
+
+    #region :: BaseType ::
+
+    public class ApproverRule {
+        public String Id { get; set; }
+        public String RegistrationNo { get; set; }
+    }
+
+    public class BaseTypeImpl {
+        public Object Value { get; private set; }
+        public Type Type { get; private set; }
+
+        public BaseTypeImpl(Object value, Type type) {
+            Value = value;
+            Type = type;
+        }
+
+        public static BaseTypeImpl Get(String stringVar) {
+            if (String.IsNullOrEmpty(stringVar))
+                throw new InvalidOperationException("The provided string must not be null");
+
+            String processed = stringVar.ToLowerInvariant();
+            if (processed == "true" || processed == "false")
+                return new BaseTypeImpl(Convert.ToBoolean(processed), typeof(Boolean));
+            if (Decimal.TryParse(processed, out Decimal parsedD))
+                return new BaseTypeImpl(parsedD, typeof(Decimal));
+
+            return new BaseTypeImpl(stringVar, typeof(String));
+        }
+    }
+
+    public static class Ext {
+        public static Dictionary<String, BaseTypeImpl> AsRuleData<T>(this T tObj) where T : class {
+            var result = new Dictionary<String, BaseTypeImpl>();
+            Type tType = typeof(T);
+            PropertyInfo[] tProperties = tType.GetProperties();
+            if (tProperties.Length != 0) {
+                foreach (PropertyInfo property in tProperties) {
+                    Type propType = property.PropertyType;
+                    Object propOriValue = property.GetValue(tObj, null);
+                    Object propValue = propType.FullName == "System.String" ? "'" + Convert.ChangeType(propOriValue, typeof(String)) + "'" : propOriValue;
+                    var ruleValue = new BaseTypeImpl(propValue, propType);
+                    result.Add(property.Name, ruleValue);
+                }
+            }
+
+            return result;
+        }
+    }
 
     #endregion
 }

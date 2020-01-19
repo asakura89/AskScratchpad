@@ -59,6 +59,8 @@
     <Compile Include="Script\PrintCharCode.cs" />
     <Compile Include="Script\TestDecoratorPattern.cs" />
     <Compile Include="Script\TestAdvancedBuilderPattern.cs" />
+    <Compile Include="Script\TestAnonymous.cs" />
+    <Compile Include="Script\TestBitwise.cs" />
     <Compile Include="Script\TestMaaya.cs" />
     <Compile Include="Script\TestSecurity.cs" />
     <Compile Include="Script\TestNvy.cs" />

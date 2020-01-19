@@ -4,7 +4,6 @@ using Scratch;
 
 namespace CSScratchpad.Script {
     class TestDecoratorPattern : Common, IRunnable {
-        // NOTE: Exy already added in Common.cs
         public void Run() {
             var component = new Component();
             var mixer = new ComponentMixerDecorator(component);
