@@ -48,6 +48,7 @@ namespace CSScratchpad {
                 new ReadAppConfigSection(),
                 new ShowCacheControl(),
                 new SimpleStickyNotesDatetimeFromFloat(),
+                new TestAdvancedBuilderPattern(),
                 new TestAllAboutArray(),
                 new TestArvy(),
                 new TestDatetimeUtil(),
