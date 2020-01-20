@@ -13,6 +13,7 @@ namespace CSScratchpad {
                 new Base64UrlAndJwtBase64(),
                 new ChangeAspMembershipPassword(),
                 new CheckPath(),
+                new CleanUrl(),
                 new CloneList(),
                 new CombineFiles(),
                 new CombineUrl(),
@@ -38,6 +39,7 @@ namespace CSScratchpad {
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
                 new PrintFromFile(),
+                new PrintLoadedAssemblies(),
                 new PrintLookup(),
                 new PrintPatchedJson(),
                 new PrintRandomizedList(),
@@ -46,6 +48,7 @@ namespace CSScratchpad {
                 new PrintTodoList(),
                 new PrintUri(),
                 new ReadAppConfigSection(),
+                // new RunCmd(), // [NEED TO BE FIXED]
                 new ShowCacheControl(),
                 new SimpleStickyNotesDatetimeFromFloat(),
                 new TestAdvancedBuilderPattern(),
@@ -61,7 +64,7 @@ namespace CSScratchpad {
                 new TestPOCOBuilder(),
                 new TestSecurity(),
                 new TestVarya(),
-                new ZipStructureViewer()
+                // new ZipStructureViewer() // [NEED TO BE FIXED]
             }
             .Last()
             .Run();

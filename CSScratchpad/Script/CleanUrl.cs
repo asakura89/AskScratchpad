@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Scratch;
 
@@ -15,17 +14,14 @@ namespace CSScratchpad.Script {
             foreach (String url in urls)
                 Console.WriteLine(CleanURL(url, domain));
 
-            Dbg(
-                AppDomain.CurrentDomain.GetAssemblies()
-                    .Select(asm => asm.FullName)
-                    .OrderBy(name => name)
-            );
+            foreach (String url in urls)
+                Console.WriteLine(GetDomainFromUrl(url));
         }
 
         public String CleanURL(String url, String domain) {
             String strReturn = String.Empty;
 
-            Boolean bHasDomain = !GetDomainFromUrl(url).Equals("");
+            Boolean bHasDomain = !String.IsNullOrEmpty(GetDomainFromUrl(url));
             if (bHasDomain)
                 strReturn = url;
             else {
@@ -42,9 +38,9 @@ namespace CSScratchpad.Script {
         public String GetDomainFromUrl(String url) {
             String strReturn = String.Empty;
 
-            String strPattern2Find = "^https?://.*/";
-            Match mat = Regex.Match(url, strPattern2Find, RegexOptions.Singleline);
-            strReturn = mat.Groups[0].Value;
+            String strPattern2Find = "^(?<protocol>https?:\\/\\/)(?<domain>[^\\/]+)\\/";
+            Match mat = Regex.Match(url, strPattern2Find, RegexOptions.Compiled | RegexOptions.Singleline);
+            strReturn = mat.Groups["domain"].Value;
 
             return strReturn;
         }
@@ -52,7 +48,7 @@ namespace CSScratchpad.Script {
         public String FindAndReplace(String source, String pattern2Find, String pattern2Replace, String replacer) {
             String replaced = String.Empty;
 
-            Match mat = Regex.Match(source, pattern2Find, RegexOptions.Singleline);
+            Match mat = Regex.Match(source, pattern2Find, RegexOptions.Compiled | RegexOptions.Singleline);
             replaced = Regex.Replace(mat.Groups[0].Value, pattern2Replace, replacer);
 
             return replaced;
