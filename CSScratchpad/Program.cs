@@ -64,7 +64,7 @@ namespace CSScratchpad {
                 new TestPOCOBuilder(),
                 new TestSecurity(),
                 new TestVarya(),
-                // new ZipStructureViewer() // [NEED TO BE FIXED]
+                new ZipStructureViewer()
             }
             .Last()
             .Run();

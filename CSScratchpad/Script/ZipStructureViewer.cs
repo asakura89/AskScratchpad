@@ -1,41 +1,32 @@
 
-using System;
-using System.Collections.Generic;
-using System.IO.Compression;
-using System.Linq;
+using Ionic.Zip;
 using Scratch;
+using System;
+using System.IO;
 
 namespace CSScratchpad.Script {
     class ZipStructureViewer : Common, IRunnable {
         public void Run() {
-            //String zipPath = @"D:\gtt-migration-20191029.0-1.zip";
-            //using (ZipArchive archive = ZipFile.OpenRead(zipPath)) {
-            //    Dbg(
-            //        archive
-            //            .Entries
-            //            .Select(entry => entry.FullName)
-            //    );
+            String zipPath = GetDataPath("Dyana-master.zip");
 
-            //    Func<List<ZipArchiveEntry>, Int32, List<Level>> children = null;
-            //    children = (entries, lv) =>
-            //        entries
-            //            .Select(entry => new Level { LevelCount = lv, Entry = entry })
-            //            .Concat(entries
-            //                .SelectMany(entry => children(entry.Open() ?? new List<ZipArchiveEntry>(), lv+1)))
-            //            .ToList();
+            var stream = (Stream) File.Open(zipPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            using (var zip = ZipFile.Read(stream)) {
+                foreach (ZipEntry entry in zip) {
+                    if (Path.GetExtension(entry.FileName).Equals(".zip", StringComparison.InvariantCultureIgnoreCase)) {
+                        String izipName = entry.FileName + "/";
+                        Console.WriteLine(izipName);
 
-            //    return String.Join("\r\n", children(archive.Entries.ToList(), 0)
-            //        .OrderBy(lv => lv.Entry.Id.ToString())
-            //        .Select(lv =>
-            //            (lv.LevelCount > 0 ?
-            //                String.Join(String.Empty, Enumerable.Repeat("--", lv.LevelCount)) :
-            //                String.Empty) + "Id: " + lv.Tree.Id.ToString() + ", Name: " + lv.Tree.Name));
-            //}
-        }
-
-        public class Level {
-            public Int32 LevelCount;
-            public ZipArchiveEntry Entry;
+                        var contentStream = new MemoryStream();
+                        entry.Extract(contentStream);
+                        contentStream.Position = 0;
+                        using (var izip = ZipFile.Read(contentStream))
+                            foreach (ZipEntry izipEntry in izip)
+                                Console.WriteLine(izipName + izipEntry.FileName);
+                    }
+                    else
+                        Console.WriteLine(entry.FileName);
+                }
+            }
         }
     }
 }
