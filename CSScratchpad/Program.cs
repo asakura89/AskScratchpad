@@ -38,6 +38,7 @@ namespace CSScratchpad {
                 new GetProperties(),
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
+                new PrintDir(),
                 new PrintFromFile(),
                 new PrintLoadedAssemblies(),
                 new PrintLookup(),

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Scratch {
     public abstract class Common {
-        readonly String DataDirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+        protected readonly String DataDirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
 
         protected String GetDataPath(String filename) {
             if (!Directory.Exists(DataDirPath))
@@ -15,7 +15,7 @@ namespace Scratch {
             return Path.Combine(DataDirPath, filename);
         }
 
-        readonly String OutputDirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp");
+        protected readonly String OutputDirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp");
 
         protected String GetOutputPath(String filename) {
             if (!Directory.Exists(OutputDirPath))

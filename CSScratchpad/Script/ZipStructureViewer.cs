@@ -1,8 +1,8 @@
 
-using Ionic.Zip;
-using Scratch;
 using System;
 using System.IO;
+using Ionic.Zip;
+using Scratch;
 
 namespace CSScratchpad.Script {
     class ZipStructureViewer : Common, IRunnable {

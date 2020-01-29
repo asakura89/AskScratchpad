@@ -1,0 +1,51 @@
+[
+  {
+    "eyeColor": "green",
+    "name": {
+      "first": "Lula",
+      "last": "Hurst"
+    }
+  },
+  {
+    "eyeColor": "blue",
+    "name": {
+      "first": "Claudette",
+      "last": "Houston"
+    }
+  },
+  {
+    "eyeColor": "blue",
+    "name": {
+      "first": "Guy",
+      "last": "Ray"
+    }
+  },
+  {
+    "eyeColor": "green",
+    "name": {
+      "first": "Small",
+      "last": "Mathews"
+    }
+  },
+  {
+    "eyeColor": "brown",
+    "name": {
+      "first": "Fran",
+      "last": "Pierce"
+    }
+  },
+  {
+    "eyeColor": "green",
+    "name": {
+      "first": "Torres",
+      "last": "Wolfe"
+    }
+  },
+  {
+    "eyeColor": "brown",
+    "name": {
+      "first": "Selma",
+      "last": "Zimmerman"
+    }
+  }
+]

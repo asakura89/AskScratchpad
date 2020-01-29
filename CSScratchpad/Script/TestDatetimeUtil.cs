@@ -378,6 +378,38 @@ namespace CSScratchpad.Script {
                     DateTime14 = DateTime.ParseExact("12/22/2011 8:25:07 PM", format, CultureInfo.CurrentCulture).AsAnotherTimeAgo()
                 }
             );
+
+            /** ──────────────────────────────────────────────────────────────────────────────── */
+
+            // NOTE: Time with Z
+
+            TimeZone tz = TimeZone.CurrentTimeZone;
+            TimeSpan offset = tz.GetUtcOffset(DateTime.Now);
+            Console.WriteLine(offset);
+
+            Func<String, DateTime> ParseDateTime1 = input => DateTime.ParseExact(input, "yyyyMMdd\\THHmmss\\Z", CultureInfo.InvariantCulture, DateTimeStyles.None);
+            Func<String, DateTime> ParseDateTime2 = input => DateTime.ParseExact(input, "yyyyMMdd'T'HHmmss'Z'", CultureInfo.InvariantCulture, DateTimeStyles.None);
+
+            Func<DateTime, String> StringifyDateTime = input => $"{input} => Kind: {input.Kind}, IsDaylightSavingTime: {input.IsDaylightSavingTime()}, UTC: {input.ToUniversalTime()}, Local: {input.ToLocalTime()}";
+
+            var datetime = new {
+                Date1 = ParseDateTime1("20191228T170845Z"),
+                Date2 = ParseDateTime2("20191228T170845Z"),
+                Date3 = ParseDateTime1("20200127T144936Z"),
+                Date4 = ParseDateTime2("20200127T144936Z")
+            };
+
+            Dbg(
+                new {
+                    Original = datetime,
+                    Stringified = new {
+                        String1 = StringifyDateTime(datetime.Date1),
+                        String2 = StringifyDateTime(datetime.Date2),
+                        String3 = StringifyDateTime(datetime.Date3),
+                        String4 = StringifyDateTime(datetime.Date4)
+                    }
+                }
+            );
         }
 
         Int32 CalculateLeapYearCount(Int32 year, Int32 startingYear) {
