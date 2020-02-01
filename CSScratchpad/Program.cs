@@ -47,6 +47,7 @@ namespace CSScratchpad {
                 new PrintSimpleHashPassword(),
                 new PrintTable(),
                 new PrintTodoList(),
+                new PrintTree(),
                 new PrintUri(),
                 new ReadAppConfigSection(),
                 // new RunCmd(), // [NEED TO BE FIXED]

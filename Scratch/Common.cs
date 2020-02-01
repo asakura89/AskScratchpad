@@ -36,8 +36,10 @@ namespace Scratch {
                     ));
             }
 
-            Console.WriteLine(JsonConvert.SerializeObject(obj, Formatting.Indented));
-            Console.WriteLine();
+            if (!(obj is String && String.IsNullOrEmpty(obj.ToString()))) {
+                Console.WriteLine(JsonConvert.SerializeObject(obj, Formatting.Indented));
+                Console.WriteLine();
+            }
         }
     }
 

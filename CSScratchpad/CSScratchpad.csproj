@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\PrintTree.cs" />
     <Compile Include="Script\PrintDir.cs" />
     <Compile Include="Script\CheckPath.cs" />
     <Compile Include="Script\CombineXml.cs" />
