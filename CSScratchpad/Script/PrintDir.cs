@@ -16,10 +16,12 @@ namespace CSScratchpad.Script {
             Dbg("PrintDirContents", String.Empty);
             PrintDirContents(input);
 
-            Dbg("GetPathInfoNode without recursion", GetPathInfoNode(input));
+            NAryNode pathInfoNode = GetPathInfoNode(input);
+            Dbg("GetPathInfoNode without recursion", pathInfoNode);
+            PrintPathInfoNode(pathInfoNode);
         }
 
-        #region :: PathInfo ::
+        #region :: PathInfo Logic ::
 
         PathInfo GetPathInfo(String path) {
             var info1 = new {
@@ -50,16 +52,6 @@ namespace CSScratchpad.Script {
             };
         }
 
-        class PathInfo {
-            public String Path { get; set; }
-            public String Name { get; set; }
-            public Boolean IsDirectory { get; set; }
-            public Boolean HasChildren { get; set; }
-            public IEnumerable<String> Children { get; set; }
-        }
-
-        #endregion
-
         void PrintDirContents(String path) {
             if (String.IsNullOrEmpty(path))
                 return;
@@ -77,6 +69,16 @@ namespace CSScratchpad.Script {
                         remainings.Push(GetPathInfo(child));
             }
         }
+
+        class PathInfo {
+            public String Path { get; set; }
+            public String Name { get; set; }
+            public Boolean IsDirectory { get; set; }
+            public Boolean HasChildren { get; set; }
+            public IEnumerable<String> Children { get; set; }
+        }
+
+        #endregion
 
         #region :: N-Ary Node ::
 
@@ -99,7 +101,7 @@ namespace CSScratchpad.Script {
 
         class NAryNode {
             public Object Content { get; set; }
-            public Int32 Level { get; set; }
+            public Int32 Depth { get; set; }
             public Boolean HasChildren { get; set; }
             public IList<NAryNode> Children { get; set; }
         }
@@ -127,19 +129,48 @@ namespace CSScratchpad.Script {
 
         class NAryNode<T> {
             public T Content { get; set; }
-            public Int32 Level { get; set; }
+            public Int32 Depth { get; set; }
             public Boolean HasChildren { get; set; }
             public IList<NAryNode<T>> Children { get; set; }
         }
 
         #endregion
 
-        NAryNode ConvertPathToNAryNode(String path) {
-            var content = new PathDir { Path = path, IsDirectory = File.GetAttributes(path).HasFlag(FileAttributes.Directory) };
-            var node = new NAryNode { Content = content };
+        #region :: N-Ary Node Logic ::
 
-            return node;
+        String GetName(NAryNode item) =>
+            (item.Depth > 0 ?
+                "|__".PadLeft(item.Depth *3, ' ') :
+                    String.Empty) + (item.Content as PathDir).Name;
+
+        void PrintPathInfoNode(NAryNode root) {
+            if (root == null)
+                return;
+
+            NAryNode current = null;
+            var remainings = new Stack<NAryNode>(new[] { root });
+            while (remainings.Any()) {
+                current = remainings.Pop();
+
+                Console.WriteLine(GetName(current));
+
+                if (current.HasChildren)
+                    foreach (NAryNode child in current.Children)
+                        remainings.Push(child);
+            }
         }
+
+        NAryNode ConvertPathToNAryNode(String path, Int32 depth) =>
+            new NAryNode {
+                Content = new PathDir {
+                    Path = path,
+                    IsDirectory = File.GetAttributes(path).HasFlag(FileAttributes.Directory),
+                    Name = File.GetAttributes(path).HasFlag(FileAttributes.Directory) ?
+                        new DirectoryInfo(path).Name :
+                        new FileInfo(path).Name
+                },
+                Depth = depth
+            };
 
         IEnumerable<String> GetChildren(String path) {
             Boolean isDirectory = File.GetAttributes(path).HasFlag(FileAttributes.Directory);
@@ -154,15 +185,15 @@ namespace CSScratchpad.Script {
         }
 
         NAryNode GetPathInfoNode(String path) {
-            if(String.IsNullOrEmpty(path))
+            if (String.IsNullOrEmpty(path))
                 return null;
 
-            NAryNode root = ConvertPathToNAryNode(path);
+            NAryNode root = ConvertPathToNAryNode(path, 0);
             var remainings = new Stack<NAryNode>(new[] { root });
             while (remainings.Any()) {
                 NAryNode current = remainings.Pop();
                 if (current.Children == null) {
-                    PathDir content = current.Content as PathDir; ;
+                    var content = current.Content as PathDir;
                     IEnumerable<String> children = GetChildren(content.Path);
                     current.HasChildren = children != null && children.Any();
                     if (!current.HasChildren)
@@ -170,7 +201,7 @@ namespace CSScratchpad.Script {
                     else {
                         current.Children = new List<NAryNode>();
                         foreach (String child in children) {
-                            NAryNode childNode = ConvertPathToNAryNode(child);
+                            NAryNode childNode = ConvertPathToNAryNode(child, current.Depth +1);
                             remainings.Push(childNode);
                             current.Children.Add(childNode);
                         }
@@ -184,15 +215,9 @@ namespace CSScratchpad.Script {
         class PathDir {
             public String Path { get; set; }
             public Boolean IsDirectory { get; set; }
+            public String Name { get; set; }
         }
 
-
-        
-
-        
-
-        
-
-        
+        #endregion
     }
 }
