@@ -46,8 +46,16 @@
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Others\Duck\MallardDuck.cs" />
+    <Compile Include="Others\Duck\IDuck.cs" />
+    <Compile Include="Others\Turkey\ITurkey.cs" />
+    <Compile Include="Others\Task\ITaskService.cs" />
+    <Compile Include="Others\Task\TaskModel.cs" />
+    <Compile Include="Others\Task\TaskService.cs" />
+    <Compile Include="Others\Turkey\WildTurkey.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
     <Compile Include="Script\PrintTree.cs" />
@@ -67,6 +75,7 @@
     <Compile Include="Script\TestAdvancedBuilderPattern.cs" />
     <Compile Include="Script\TestAnonymous.cs" />
     <Compile Include="Script\TestBitwise.cs" />
+    <Compile Include="Script\TestXml.cs" />
     <Compile Include="Script\TestMaaya.cs" />
     <Compile Include="Script\TestSecurity.cs" />
     <Compile Include="Script\TestNvy.cs" />
@@ -119,6 +128,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\InnerData\data-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\ProtectedInnerData\AdminLevel1\data-32.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\ProtectedInnerData\AdminLevel1\data-31.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\ProtectedInnerData\AdminLevel1\data-3.json">

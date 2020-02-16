@@ -66,6 +66,7 @@ namespace CSScratchpad {
                 new TestPOCOBuilder(),
                 new TestSecurity(),
                 new TestVarya(),
+                new TestXml(),
                 new ZipStructureViewer()
             }
             .Last()

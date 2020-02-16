@@ -1,0 +1,8 @@
+<csscratchpad>
+  <compositionRoot>
+    <singleton type="Scratch.IRunnable, Scratch" resolve="CSScratchpad.Script.CleanUrl, CSScratchpad" />
+    <singleton type="CSScratchpad.Others.Turkey.ITurkey, CSScratchpad" resolve="CSScratchpad.Others.Turkey.WildTurkey, CSScratchpad" />
+    <transient type="CSScratchpad.Others.Duck.IDuck, CSScratchpad" resolve="CSScratchpad.Others.Duck.MallardDuck, CSScratchpad" />
+    <transient type="CSScratchpad.Others.Task.ITaskService, CSScratchpad" resolve="CSScratchpad.Others.Task.TaskService, CSScratchpad" />
+  </compositionRoot>
+</csscratchpad>
