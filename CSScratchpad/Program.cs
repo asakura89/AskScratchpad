@@ -36,6 +36,8 @@ namespace CSScratchpad {
                 new GenerateTenGuid(),
                 new GenerateToken(),
                 new GetProperties(),
+                new HostAConfiguredWebApi(),
+                new HostAWebApi(),
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
                 new PrintDir(),
