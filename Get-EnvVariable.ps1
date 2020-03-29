@@ -1,2 +1,2 @@
 Clear-Host
-$env:Path -Split ";"
+Get-ChildItem Env:*
