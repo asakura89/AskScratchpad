@@ -14,6 +14,8 @@ namespace CSScratchpad.Script {
 
             XmlNode root = xmlDoc.DocumentElement;
 
+            XmlDocument anotherXmlDocFromPath = LoadFromPath(GetDataPath("ProtectedInnerData\\AdminLevel1\\data-33.xml"));
+
             Dbg("Xml", new {
                 LoadFromPath = xmlDocFromPath,
                 Load = xmlDoc,
@@ -26,7 +28,8 @@ namespace CSScratchpad.Script {
                 Select2ndNode = root.SelectSingleNode("compositionRoot/transient[2]"),
                 SelectByAttribute = root.SelectSingleNode("compositionRoot/transient[@type='CSScratchpad.Others.Task.ITaskService, CSScratchpad']"),
                 GetAttribute = GetAttribute(root.SelectSingleNode("compositionRoot/singleton"), "type"),
-                GetAttributeValue = GetAttributeValue(root.SelectSingleNode("compositionRoot/singleton"), "type")
+                GetAttributeValue = GetAttributeValue(root.SelectSingleNode("compositionRoot/singleton"), "type"),
+                AnotherXmlDocFromPath = anotherXmlDocFromPath
             });
 
             XmlNodeList nodes = root.SelectNodes("compositionRoot/*");

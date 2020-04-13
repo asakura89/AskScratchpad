@@ -1,0 +1,11 @@
+<csscratchpad>
+  <configurations>
+    <configuration name="Container-1" description="Container 1" />
+  </configurations>
+  <compositionRoot>
+    <forIRunnable type="CSScratchpad.Script.CleanUrl, CSScratchpad" singleInstance="true" />
+    <forITurkey type="CSScratchpad.Others.Turkey.WildTurkey, CSScratchpad" />
+    <forIDuck type="CSScratchpad.Others.Duck.MallardDuck, CSScratchpad" />
+    <forITaskService type="CSScratchpad.Others.Task.TaskService, CSScratchpad" singleInstance="true" />
+  </compositionRoot>
+</csscratchpad>
