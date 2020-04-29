@@ -1,0 +1,28 @@
+{
+  "name": "mana",
+  "version": "0.0.3",
+  "description": "Simple wallpaper generator",
+  "main": "mana.js",
+  "scripts": {
+    "start": "serve --port 52583"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asakura89/Mana.git"
+  },
+  "keywords": [
+    "simple",
+    "wallpaper",
+    "generator"
+  ],
+  "author": "asakura89",
+  "license": "UNLICENSE",
+  "bugs": {
+    "url": "https://github.com/asakura89/Mana/issues"
+  },
+  "homepage": "https://github.com/asakura89/Mana#readme",
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "serve": "^11.0.2"
+  }
+}
