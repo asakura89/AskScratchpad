@@ -1,0 +1,1 @@
+Database used can be found [here](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
