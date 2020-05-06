@@ -1,5 +1,4 @@
 --<< Get User Account >>-
-
 SELECT
 us.[UserName],
 mem.[Email],
@@ -12,7 +11,6 @@ ON us.UserId = mem.UserId
 
 
 --<< User Role >>--
-
 ;
 WITH AspUser AS (
     SELECT
@@ -46,8 +44,8 @@ LEFT JOIN AspRole ar
 ON au.UserId = ar.UserId
 
 
---<< Expired Password Reset >>--
 
+--<< Expired Password Reset >>--
 BEGIN
     SET NOCOUNT ON
     BEGIN TRAN ResetPwd
@@ -80,3 +78,40 @@ BEGIN
     SET NOCOUNT OFF
     SELECT @message [Message]
 END
+
+
+
+--<< Search User with Id contains part of guid >>--
+SELECT *
+FROM dbo.aspnet_Users
+WHERE LOWER(CONVERT(CHAR(36), UserId)) LIKE '4e18856f%'
+
+
+
+--<< Check non-existent user from list >>--
+;
+WITH SuspectedUserList AS (
+    SELECT * FROM (
+        VALUES 
+            ('MembershipUserTest01'),
+            ('MembershipUserTest02'),
+            ('MembershipUserTest03'),
+            ('MembershipUserTest04'),
+            ('MembershipUserTest05')
+    ) UsernameList(Username)
+),
+UserList AS (
+    SELECT
+    lu.Username,
+    u.ApplicationId U_AppId,
+    u.[UserId] U_Id,
+    u.[UserName] U_name
+    FROM SuspectedUserList lu
+    LEFT JOIN [dbo].[aspnet_Users] u
+    ON UPPER(u.UserName) = UPPER(lu.Username)
+)
+SELECT * FROM UserList
+WHERE U_Id IS NULL
+ORDER BY Username
+
+

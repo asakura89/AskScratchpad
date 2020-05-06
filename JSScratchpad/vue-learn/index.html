@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>App</title>
+        <script type="module" src="node_modules/vue/dist/vue.js"></script>
+        <script type="module" src="index.js"></script>
+        <style type="text/css">
+            .bold {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="app">
+            <h1>{{greet("night")}}</h1>
+            <p v-bind:class="nameHighlighted">Name: {{name}}</p>
+            <p :class="jobHighlighted">Job: {{job}}</p>
+            <p :class="websiteHighlighted">Website: <a :href="website">Link</a></p>
+            <span v-html="jobBadge"></span>
+            <button v-on:click="highlight(false)">Prev</button>
+            <button :click="highlight(true)">Next</button>
+        </section>
+    </body>
+</html>
