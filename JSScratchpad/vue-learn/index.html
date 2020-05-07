@@ -13,13 +13,24 @@
     </head>
     <body>
         <section id="app">
-            <h1>{{greet("night")}}</h1>
+            <h1>{{Greet("night")}}</h1>
             <p v-bind:class="nameHighlighted">Name: {{name}}</p>
             <p :class="jobHighlighted">Job: {{job}}</p>
             <p :class="websiteHighlighted">Website: <a :href="website">Link</a></p>
+            <br/>
             <span v-html="jobBadge"></span>
-            <button v-on:click="highlight(false)">Prev</button>
-            <button :click="highlight(true)">Next</button>
+            <br/>
+            <button v-on:click="Highlight(false)">Prev</button>
+            <button @click="Highlight(true)">Next</button>
+            <br/>
+            <button @dblclick="Jump(false)">Jump back</button>
+            <button @dblclick="Jump(true)">Jump front</button>
+            <br/>
+            <input type="text" v-model="input" placeholder="input" />
+            <p>Input: {{input}}</p>
+            <input id="input-2" type="text" @keyup="UpdateInput2" placeholder="input2" />
+            <p>Input 2: {{input2}}</p>
+            <button @click="Warning('can\'t be submitted', $event)">Submit</button>
         </section>
     </body>
 </html>

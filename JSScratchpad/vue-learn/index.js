@@ -8,13 +8,15 @@ new Vue({
         highlightPos: undefined,
         nameHighlighted: "",
         jobHighlighted: "",
-        websiteHighlighted: ""
+        websiteHighlighted: "",
+        input: "",
+        input2: ""
     },
     methods: {
-        greet: function(time) {
+        Greet: function(time) {
             return `Yo, ${this.name}! Good ${time}`;
         },
-        highlight: function (next) {
+        Highlight: function (next) {
             var pos = ["name", "job", "website"];
             if (this.highlightPos === undefined) {
                 this.highlightPos = "name";
@@ -33,6 +35,38 @@ new Vue({
             this.nameHighlighted = this.highlightPos === "name" ? "bold" : "";
             this.jobHighlighted = this.highlightPos === "job" ? "bold" : "";
             this.websiteHighlighted = this.highlightPos === "website" ? "bold" : "";
+        },
+        Jump: function (next) {
+            var pos = ["name", "job", "website"];
+            if (this.highlightPos === undefined) {
+                this.highlightPos = "name";
+            }
+            else if (next) {
+                var idx = pos.indexOf(this.highlightPos) +2;
+                var adjusted = idx > (pos.length -1) ? (pos.length -1) : idx;
+                this.highlightPos = pos[adjusted];
+            }
+            else {
+                var idx = pos.indexOf(this.highlightPos) -2;
+                var adjusted = idx < 0 ? 0 : idx;
+                this.highlightPos = pos[adjusted];
+            }
+            
+            this.nameHighlighted = this.highlightPos === "name" ? "bold" : "";
+            this.jobHighlighted = this.highlightPos === "job" ? "bold" : "";
+            this.websiteHighlighted = this.highlightPos === "website" ? "bold" : "";
+        },
+        UpdateInput2(event) {
+            console.log(event);
+            var app = this.$el;
+            this.input2 = app.querySelector("#input-2").value;
+        },
+        Warning(message, event) {
+            if (event) {
+                event.preventDefault();
+            }
+            console.log(event);
+            alert(message);
         }
     }
 });
