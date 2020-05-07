@@ -70,3 +70,82 @@ new Vue({
         }
     }
 });
+
+
+new Vue({
+    el: "#app-2",
+    data: {
+        resolutions: [
+            "stay positive",
+            "meet new people",
+            "don't get stress",
+            "don't complaining / squawking / sighing"
+        ],
+        nextyresolutions: [
+            "always smiling",
+            "keep the good mood",
+            "wake up early",
+            "express feelings with hobbies"
+        ],
+        ress: [
+            {
+                No: 1,
+                Title: "stay positive"
+            },
+            {
+                No: 2,
+                Title: "meet new people"
+            },
+            {
+                No: 3,
+                Title: "don't get stress"
+            },
+            {
+                No: 4,
+                Title: "don't complaining / squawking / sighing"
+            }
+        ],
+        selected: ""
+    },
+    filters: {
+        TitleCasing: function (value) {
+            if (!value) {
+                return "";
+            }
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        },
+        CleansSelected: function (selected, data) {
+            if (selected === "") {
+                return {
+                    No: -1,
+                    Title: ""
+                };
+            }
+
+            var idx = Number(selected) -1;
+            return data[idx];
+        },
+        Expand: function (obj) {
+            var propNames = Object.keys(obj);
+            var expanded = "";
+            var actual = [];
+            for (var idx = 0; idx < propNames.length; idx++) {
+                var name = propNames[idx];
+                var current = obj[name];
+                if (current === undefined) {
+                    actual.push(`${name}: undefined`);
+                }
+                else if (current === null) {
+                    actual.push(`${name}: null`);
+                }
+                else {
+                    actual.push(`${name}: ${current.toString()}`);
+                }
+
+                expanded = Array.prototype.join.call(actual, ", ");
+            }
+            return expanded;
+        }
+    }
+});

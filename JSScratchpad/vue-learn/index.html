@@ -32,5 +32,19 @@
             <p>Input 2: {{input2}}</p>
             <button @click="Warning('can\'t be submitted', $event)">Submit</button>
         </section>
+        <section id="app-2">
+            <h1>This year resolutions:</h1>
+            <p>{{resolutions[0] | TitleCasing}}</p>
+            <p>{{resolutions[1] | TitleCasing}}</p>
+            <p>{{resolutions[2] | TitleCasing}}</p>
+            <p>{{resolutions[3] | TitleCasing}}</p>
+            <h1>Next year resolutions:</h1>
+            <p v-for="res in nextyresolutions">{{res | TitleCasing}}</p>
+            <h1>Pick one which you will resolute today</h1>
+            <select v-model="selected">
+                <option v-for="(res, index) in ress" :value="res.No">{{index +1}}. {{ res.Title | TitleCasing }}</option>
+            </select>
+            <p>{{selected | CleansSelected(ress) | Expand}}</p>
+        </section>
     </body>
 </html>
