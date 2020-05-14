@@ -1,0 +1,128 @@
+
+/* Get request count */
+SELECT
+c-ip AS Client,
+cs-uri-stem AS Url,
+COUNT(cs-uri-stem) AS RequestCount
+FROM '[LOGFILEPATH]'
+GROUP BY c-ip, cs-uri-stem
+ORDER BY COUNT(cs-uri-stem) DESC
+
+/* Get request count chronogically */
+SELECT
+c-ip AS Client,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+FROM '[LOGFILEPATH]'
+GROUP BY c-ip, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+
+/* Get request count chronogically and save to csv */
+SELECT
+c-ip AS Client,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+INTO '[OUTFILEPATH]\Get-RequestCountChronogically.CSV'
+FROM '[LOGFILEPATH]'
+GROUP BY c-ip, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+
+
+/* Get request count by IP */
+SELECT c-ip AS Client,
+COUNT(0) AS RequestCount
+/* INTO '[OUTFILEPATH]\Get-RequestByIp.CSV' */
+FROM '[LOGFILEPATH]'
+GROUP BY c-ip
+ORDER BY RequestCount DESC
+
+/* Get request count by Http Verb */
+SELECT
+cs-method AS HttpVerb,
+cs-uri-stem AS Url,
+cs-uri-query AS QueryString,
+COUNT(0) AS RequestCount
+/* INTO '[OUTFILEPATH]\Get-RequestByHttpVerb.CSV' */
+FROM '[LOGFILEPATH]'
+GROUP BY cs-method, cs-uri-stem, cs-uri-query
+ORDER BY COUNT(0) DESC
+
+/* Get request count by Http Status */
+SELECT
+cs-uri-stem AS Url,
+sc-status AS HttpStatus,
+sc-substatus AS SubStatus,
+sc-win32-status AS Win32Status,
+COUNT(0) AS Total 
+FROM '[LOGFILEPATH]' 
+WHERE (sc-status = 500)
+GROUP BY Uri, HttpStatus, SubStatus, Win32Status 
+ORDER BY Total DESC
+
+/* Get request count by Http Status chronogically */
+SELECT
+c-ip AS Client,
+cs-uri-stem AS Url,
+sc-status AS HttpStatus,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+FROM '[LOGFILEPATH]' 
+WHERE (sc-status = 500)
+GROUP BY Client, Url, HttpStatus, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+ORDER BY RequestCount DESC
+
+
+/* Get all troubled request count by Http Status chronogically */
+SELECT
+c-ip AS Client,
+cs-uri-stem AS Url,
+sc-status AS HttpStatus,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+/* INTO '[OUTFILEPATH]\Get-AllTroubledRequestByHttpStatus.csv' */
+FROM '[LOGFILEPATH]'
+WHERE sc-status BETWEEN 400 AND 600
+GROUP BY Client, Url, HttpStatus, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+ORDER BY TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) DESC
+
+
+/*  New Query  */
+
+SELECT TOP 10 * FROM '[LOGFILEPATH]'
+
+/*
+IIS Log column
+
+LogFilename
+LogRow
+date
+time
+c-ip
+cs-username
+s-sitename
+s-computername
+s-ip
+s-port
+cs-method
+cs-uri-stem
+cs-uri-query
+sc-status
+sc-substatus
+sc-win32-status
+sc-bytes
+cs-bytes
+time-taken
+cs-version
+cs-host
+cs(User-Agent)
+cs(Cookie)
+cs(Referer)
+s-event
+s-process-type
+s-user-time
+s-kernel-time
+s-page-faults
+s-total-procs
+s-active-procs
+s-stopped-procs
+
+*/
+
