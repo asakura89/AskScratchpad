@@ -8,21 +8,23 @@ namespace CSScratchpad.Script {
         // NOTE: Exy already added in Common.cs
         public void Run() {
             try {
-                FakeDataGetter();
+                NetworkReader();
             }
             catch (Exception ex) {
-                Dbg(ex.GetExceptionMessage());
+                Console.WriteLine(ex.GetExceptionMessage());
             }
 
             try {
                 FakeProcessingMethod();
             }
             catch (Exception ex) {
-                Dbg(ex.GetExceptionMessage());
+                Console.WriteLine(ex.GetExceptionMessage());
             }
         }
 
-        void FakeDataGetter() => throw new IOException("Network is closed.");
+        void NetworkReader() => throw  new IOException("Can't read from network.");
+
+        void FakeDataGetter() => NetworkReader();
 
         void FakeProcessingMethod() {
             try {

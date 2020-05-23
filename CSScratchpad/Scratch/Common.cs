@@ -46,13 +46,19 @@ namespace Scratch {
     public static class ExcpExt {
         public static String GetExceptionMessage(this Exception ex) {
             var errorList = new StringBuilder();
-            if (ex.InnerException != null)
-                errorList.AppendLine(GetExceptionMessage(ex.InnerException));
+            Exception current = ex;
+            while (current != null) {
+                errorList
+                    .AppendLine($"Exception: {current.GetType().FullName}")
+                    .AppendLine($"Message: {current.Message}")
+                    .AppendLine($"Source: {current.Source}")
+                    .AppendLine(current.StackTrace)
+                    .AppendLine();
 
-            return errorList
-                .AppendLine(ex.Message)
-                .AppendLine(ex.StackTrace)
-                .ToString();
+                current = current.InnerException;
+            }
+
+            return errorList.ToString();
         }
     }
 }
