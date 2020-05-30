@@ -22,7 +22,7 @@ namespace CSScratchpad.Script {
             }
         }
 
-        void NetworkReader() => throw  new IOException("Can't read from network.");
+        void NetworkReader() => throw new IOException("Can't read from network.");
 
         void FakeDataGetter() => NetworkReader();
 

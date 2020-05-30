@@ -24,9 +24,7 @@ namespace Scratch {
             return Path.Combine(OutputDirPath, filename);
         }
 
-        protected void Dbg(Object obj) => Dbg(String.Empty, obj);
-
-        protected void Dbg(String title, Object obj) {
+        protected void DisplayTitle(String title) {
             if (!String.IsNullOrEmpty(title)) {
                 Console.WriteLine(title);
                 Console.WriteLine(
@@ -35,6 +33,12 @@ namespace Scratch {
                         Enumerable.Repeat("-", title.Length)
                     ));
             }
+        }
+
+        protected void Dbg(Object obj) => Dbg(String.Empty, obj);
+
+        protected void Dbg(String title, Object obj) {
+            DisplayTitle(title);
 
             if (!(obj is String && String.IsNullOrEmpty(obj.ToString()))) {
                 Console.WriteLine(JsonConvert.SerializeObject(obj, Formatting.Indented));

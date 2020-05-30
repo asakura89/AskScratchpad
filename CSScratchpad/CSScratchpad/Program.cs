@@ -73,6 +73,7 @@ namespace CSScratchpad {
                 new TestNvy(),
                 new TestPOCOBuilder(),
                 new TestSecurity(),
+                new TestShiro(),
                 new TestVarya(),
                 new TestXml(),
                 new ZipStructureViewer()
