@@ -1,0 +1,680 @@
+{
+  "src": "https://fruitsandveggies.org/stories/fruit-and-veggie-color-list/",
+  "data": [
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Red Apples"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Blood Oranges"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Cherries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Cranberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Red Grapes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Pink/Red Grapefruit"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Red Pears"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Pomegranates"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Raspberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Strawberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Red",
+      "Name": "Watermelon"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Beets"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Red Peppers"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Radishes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Radicchio"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Red Onions"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Red Potatoes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Rhubarb"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Red",
+      "Name": "Tomatoes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Apples"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Apricots"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Cape Gooseberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Cantaloupe"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Figs"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Grapefruit"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Golden Kiwifruit"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Lemons"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Mangoes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Nectarines"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Oranges"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Papayas"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Peaches"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Pears"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Persimmons"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Pineapples"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Tangerines"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Watermelon"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Apples"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Apricots"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Cape Gooseberries"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Cantaloupe"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Figs"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Grapefruit"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Golden Kiwifruit"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Lemons"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Mangoes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Nectarines"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Oranges"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Papayas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Peaches"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Pears"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Persimmons"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Pineapples"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Tangerines"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Watermelon"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Beets"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Butternut Squash"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Carrots"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Peppers"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Potatoes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Pumpkin"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Rutabagas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Summer Squash"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Sweet Corn"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Sweet Potatoes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Yellow/Orange",
+      "Name": "Yellow Tomatoes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Blackberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Blueberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Black Currants"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Concord Grapes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Dried Plums"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Elderberries"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Grape Juice (100%)"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Purple Figs"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Purple Grapes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Plums"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Blue/Purple",
+      "Name": "Raisins"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Black Olives"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Purple Asparagus"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Purple Carrots"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Eggplant"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Purple Belgian Endive"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Purple Peppers"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Potatoes (purple fleshed)"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Blue/Purple",
+      "Name": "Black Salsify"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "White/Tan/Brown",
+      "Name": "Bananas"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "White/Tan/Brown",
+      "Name": "Dates"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "White/Tan/Brown",
+      "Name": "White Nectarines"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "White/Tan/Brown",
+      "Name": "White Peaches"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "White/Tan/Brown",
+      "Name": "Brown Pears"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Cauliflower"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Garlic"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Ginger"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Jerusalem Artichokes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Jicama"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Kohlrabi"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Mushrooms"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Onions"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Parsnips"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Potatoes (White Fleshed)"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Shallots"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "Turnips"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "White/Tan/Brown",
+      "Name": "White Corn"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Avocados"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Green Apples"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Green Grapes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Honeydew"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Kiwifruit"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Limes"
+    },
+    {
+      "Type": "Fruit",
+      "Color": "Green",
+      "Name": "Green Peas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Artichokes"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Arugula"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Asparagus"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Broccoflower"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Broccoli"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Broccoli Rabe"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Brussels Sprouts"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Chinese Cabbage"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Green Beans"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Green Cabbage"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Celery"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Chayote Squash"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Cucumbers"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Endive"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Leeks"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Lettuce"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Green Onions"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Okra"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Peas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Green Peppers"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Snow Peas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Spinach"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Sugar Snap Peas"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Watercress"
+    },
+    {
+      "Type": "Vegetables",
+      "Color": "Green",
+      "Name": "Zucchini"
+    }
+  ]
+}
