@@ -76,8 +76,10 @@
     <Compile Include="Others\Task\TaskModel.cs" />
     <Compile Include="Others\Task\TaskService.cs" />
     <Compile Include="Others\Turkey\WildTurkey.cs" />
+    <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\PrintTypeFullName.cs" />
     <Compile Include="Script\PrintExpressionBody.cs" />
     <Compile Include="Script\PrintDynamic.cs" />
     <Compile Include="Script\PrintHashCode.cs" />
@@ -151,6 +153,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Data\Dyana-master.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\fruits-vegs.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Data\InnerData\data-2.json">

@@ -81,11 +81,22 @@ namespace CSScratchpad.Script {
 
         void NetworkReader() => throw new IOException("Can't read from network.");
 
-        void FakeDataGetter() => NetworkReader();
+        String FakeDataGetter() {
+            NetworkReader();
+            return "Data from Network.";
+        }
 
         void FakeProcessingMethod() {
             try {
-                FakeDataGetter();
+                String caller = this.GetFormattedCallerInfoString();
+                LogExt.Info(caller, "Starting Processing.");
+
+                LogExt.Debug(caller, "Calling Network.");
+                String data = FakeDataGetter();
+                LogExt.Debug(caller, data);
+
+
+                LogExt.Info(caller, "Finishing Processing.");
             }
             catch (Exception ex) {
                 throw new InvalidOperationException("Failed get data because of I/O problem.", ex);

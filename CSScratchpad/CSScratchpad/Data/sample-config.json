@@ -1,0 +1,17 @@
+{
+    "WebApp": {
+        "ConnectionStringName": "${ConnStringName}",
+        "Tenant": "DefaultTenant",
+        "SecuritySalt": "${CompanyName}87dh73iwiw937fg",
+        "AdminGroupName": "${CompanyName}Admin",
+        "AppFullName": "${AppShortFirstName} ${AppShortLastName}",
+        "AppFirstName": "${AppShortFirstName}",
+        "AppLastName": "${AppShortLastName}",
+        "AppShortFirstName": "${AppShortFirstName}",
+        "AppShortLastName": "${AppShortLastName}",
+        "Company": "${CompanyName}",
+        "CompanyWeb": "",
+        "ProjectStarted": 2019,
+        "NewUserInitialPassword": "${CompanyName}-NewPwd123^%"
+    }
+}

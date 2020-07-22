@@ -309,5 +309,5 @@ build-log.txt
 *log.txt
 
 # > Project spesific
-!CSScratchpad/Data/*
+!**/CSScratchpad/Data/*
 !SQLScratchpad/Data/*

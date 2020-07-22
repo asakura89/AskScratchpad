@@ -10,6 +10,7 @@ namespace CSScratchpad {
         public static void Main(String[] args) {
             new List<IRunnable> {
                 new AnalyzeHex(),
+                new ArrayMethods(),
                 new BartSimpson(),
                 new Base64UrlAndJwtBase64(),
                 new ChangeAspMembershipPassword(),
@@ -55,6 +56,7 @@ namespace CSScratchpad {
                 new PrintTable(),
                 new PrintTodoList(),
                 new PrintTree(),
+                new PrintTypeFullName(),
                 new PrintUri(),
                 new ReadAppConfigSection(),
                 // new RunCmd(), // [NEED TO BE FIXED]
