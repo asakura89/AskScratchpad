@@ -61,6 +61,8 @@ namespace CSScratchpad.Script {
             DateTime DocumentDate { get; set; }
             String Filename { get; set; }
             DataSet DataSource { get; set; }
+            String Creator { get; set; }
+            String Status { get; set; } // NOTE: could be Draft || Final
 
             void Render();
             DownloadFileInfo GetDownloadFileInfo();
@@ -74,7 +76,7 @@ namespace CSScratchpad.Script {
         }
 
         public abstract class ExcelReport : IExcelReport {
-            private Byte[] documentBytes;
+            Byte[] documentBytes;
             protected SLDocument document;
             protected SLWorksheetStatistics documentStat;
             protected Int32 rowIndex = 1;
@@ -86,11 +88,13 @@ namespace CSScratchpad.Script {
             public DateTime DocumentDate { get; set; }
             public String Filename { get; set; }
             public DataSet DataSource { get; set; }
+            public String Creator { get; set; }
+            public String Status { get; set; }
 
             protected virtual void SetupExcelDocument() {
                 document.DocumentProperties.Creator = "Asp Mvc Download Replicator";
                 document.DocumentProperties.LastModifiedBy = "Asp Mvc Download Replicator";
-                document.DocumentProperties.ContentStatus = "Final";
+                document.DocumentProperties.ContentStatus = Status;
                 document.DocumentProperties.Title = DocumentName;
                 document.DocumentProperties.Description = String.IsNullOrEmpty(DocumentNo) ? DocumentName : String.Format("{0}-{1}", DocumentName, DocumentNo);
 
@@ -131,8 +135,8 @@ namespace CSScratchpad.Script {
                 }
             }
 
-            public DownloadFileInfo GetDownloadFileInfo() {
-                return new DownloadFileInfo {
+            public DownloadFileInfo GetDownloadFileInfo() =>
+                new DownloadFileInfo {
                     DocumentName = DocumentName,
                     DocumentNo = DocumentNo,
                     DocumentFullPath = Filename,
@@ -140,15 +144,13 @@ namespace CSScratchpad.Script {
                     MimeType = MimeTypes.DetermineByExtension("xlsx"),
                     FileByteArray = documentBytes
                 };
-            }
 
-            protected String MapColumnIntoUpperHeader(String columnName) {
-                return MapColumnIntoHeader(columnName).ToUpperInvariant();
-            }
+            protected String MapColumnIntoUpperHeader(String columnName) => MapColumnIntoHeader(columnName).ToUpperInvariant();
 
             protected String MapColumnIntoHeader(String columnName) {
                 if (!columnMapping.Keys.Contains(columnName))
                     return columnName;
+
                 return columnMapping[columnName];
             }
         }
@@ -184,11 +186,10 @@ namespace CSScratchpad.Script {
                 ["ods"] = "application/ods"
             };
 
-            public static String DetermineByExtension(String ext) {
-                return !registeredMimeTypes.ContainsKey(ext) ?
+            public static String DetermineByExtension(String ext) =>
+                !registeredMimeTypes.ContainsKey(ext) ?
                     registeredMimeTypes[String.Empty] :
                     registeredMimeTypes[ext];
-            }
         }
 
         public static class ExcelReportAssembly {
