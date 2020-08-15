@@ -59,6 +59,7 @@ namespace CSScratchpad {
                 new PrintTypeFullName(),
                 new PrintUri(),
                 new ReadAppConfigSection(),
+                new ReplicateAspMvcDownload(),
                 // new RunCmd(), // [NEED TO BE FIXED]
                 new SelfHostAspWebApi(),
                 new SelfHostTheWcf(),
