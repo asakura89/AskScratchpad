@@ -137,6 +137,7 @@
     <Compile Include="Script\GenerateRandomizedList.cs" />
     <Compile Include="Script\PrintCharCode.cs" />
     <Compile Include="Script\ReplicateAspMvcDownload.cs" />
+    <Compile Include="Script\ManipulateString.cs" />
     <Compile Include="Script\SelfHostAspWebApi.cs" />
     <Compile Include="Script\SelfHostTheWcf.cs" />
     <Compile Include="Script\TestDecoratorPattern.cs" />

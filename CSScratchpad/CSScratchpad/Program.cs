@@ -40,6 +40,7 @@ namespace CSScratchpad {
                 new GetProperties(),
                 new HostAConfiguredWebApi(),
                 new HostAWebApi(),
+                new ManipulateString(),
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
                 new PrintDir(),
