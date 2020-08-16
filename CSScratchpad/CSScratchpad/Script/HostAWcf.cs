@@ -5,7 +5,7 @@ using System.ServiceModel.Description;
 using Scratch;
 
 namespace CSScratchpad.Script {
-    public class SelfHostTheWcf : Common, IRunnable {
+    public class HostAWcf : Common, IRunnable {
         public void Run() {
             // custom binding
             var b = new CustomBinding();

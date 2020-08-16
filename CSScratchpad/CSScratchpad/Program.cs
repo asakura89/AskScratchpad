@@ -39,6 +39,7 @@ namespace CSScratchpad {
                 new GenerateToken(),
                 new GetProperties(),
                 new HostAConfiguredWebApi(),
+                new HostAWcf(),
                 new HostAWebApi(),
                 new ManipulateString(),
                 new PrintAssemblyVersion(),
@@ -62,8 +63,6 @@ namespace CSScratchpad {
                 new ReadAppConfigSection(),
                 new ReplicateAspMvcDownload(),
                 // new RunCmd(), // [NEED TO BE FIXED]
-                new SelfHostAspWebApi(),
-                new SelfHostTheWcf(),
                 new ShowCacheControl(),
                 new SimpleStickyNotesDatetimeFromFloat(),
                 new TestAdvancedBuilderPattern(),
@@ -82,6 +81,8 @@ namespace CSScratchpad {
                 new TestShiro(),
                 new TestVarya(),
                 new TestXml(),
+                new WriteBinary(),
+                new WriteLicense(),
                 new ZipStructureViewer()
             }
             .Last()

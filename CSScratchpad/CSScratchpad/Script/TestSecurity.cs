@@ -109,7 +109,7 @@ namespace CSScratchpad.Script {
                     Encoding.UTF8.GetBytes(plain)
                 );
 
-            static String EncodeBase64UrlFromBytes(Byte[] bytes) =>
+            public static String EncodeBase64UrlFromBytes(Byte[] bytes) =>
                 Convert
                     .ToBase64String(bytes)
                     .TrimEnd(Base64EqualChar)
@@ -121,7 +121,7 @@ namespace CSScratchpad.Script {
                     DecodeBase64UrlToBytes(base64Url)
                 );
 
-            static Byte[] DecodeBase64UrlToBytes(String base64Url) {
+            public static Byte[] DecodeBase64UrlToBytes(String base64Url) {
                 String halfProcessed = base64Url
                     .Replace(Base64Minus, Base64Plus)
                     .Replace(Base64Underscore, Base64Slash);
