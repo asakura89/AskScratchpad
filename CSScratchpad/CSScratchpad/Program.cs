@@ -62,7 +62,7 @@ namespace CSScratchpad {
                 new PrintUri(),
                 new ReadAppConfigSection(),
                 new ReplicateAspMvcDownload(),
-                // new RunCmd(), // [NEED TO BE FIXED]
+                new RunCmd(),
                 new ShowCacheControl(),
                 new SimpleStickyNotesDatetimeFromFloat(),
                 new TestAdvancedBuilderPattern(),
