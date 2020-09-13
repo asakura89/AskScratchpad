@@ -27,6 +27,7 @@ namespace CSScratchpad {
                 new CountCharacter(),
                 new CountDecimalPlaces(),
                 new DisectCakeBuild(),
+                new EmitEvents(),
                 new FindDuplicates(),
                 new FindFiles(),
                 new FormatJson(),

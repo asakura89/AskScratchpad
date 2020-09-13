@@ -1,0 +1,11 @@
+{
+  "config.var": [{
+    "name": "AppName",
+    "value": "EventEmitter"
+  },
+  {
+    "name": "CompanyName",
+    "value": "ScratchpadWorkstation",
+    "put": "before:null"
+  }]
+}
