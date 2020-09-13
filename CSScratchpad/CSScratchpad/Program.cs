@@ -74,6 +74,7 @@ namespace CSScratchpad {
                 new TestConfigy(),
                 new TestDatetimeUtil(),
                 new TestDecoratorPattern(),
+                new TestEmitEvents(),
                 new TestExy(),
                 new TestMaaya(),
                 new TestNvy(),

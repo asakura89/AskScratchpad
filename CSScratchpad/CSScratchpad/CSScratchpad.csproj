@@ -116,6 +116,7 @@
     <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\TestEmitEvents.cs" />
     <Compile Include="Script\EmitEvents.cs" />
     <Compile Include="Script\PrintTypeFullName.cs" />
     <Compile Include="Script\PrintExpressionBody.cs" />
