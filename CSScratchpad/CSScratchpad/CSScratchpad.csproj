@@ -140,6 +140,7 @@
     <Compile Include="Script\ReplicateAspMvcDownload.cs" />
     <Compile Include="Script\ManipulateString.cs" />
     <Compile Include="Script\HostAWcf.cs" />
+    <Compile Include="Script\TestTryParse.cs" />
     <Compile Include="Script\WriteLicense.cs" />
     <Compile Include="Script\WriteBinary.cs" />
     <Compile Include="Script\TestDecoratorPattern.cs" />

@@ -79,6 +79,7 @@ namespace CSScratchpad {
                 new TestPOCOBuilder(),
                 new TestSecurity(),
                 new TestShiro(),
+                new TestTryParse(),
                 new TestVarya(),
                 new TestXml(),
                 new WriteBinary(),
