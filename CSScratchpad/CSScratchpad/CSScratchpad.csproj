@@ -113,6 +113,7 @@
     <Compile Include="Others\Task\TaskModel.cs" />
     <Compile Include="Others\Task\TaskService.cs" />
     <Compile Include="Others\Turkey\WildTurkey.cs" />
+    <Compile Include="Script\ApplicationPipeline.cs" />
     <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
@@ -197,6 +198,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Data\App_Config\application-pipeline.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\App_Config\conf-1.json.old">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

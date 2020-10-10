@@ -10,6 +10,7 @@ namespace CSScratchpad {
         public static void Main(String[] args) {
             new List<IRunnable> {
                 new AnalyzeHex(),
+                new ApplicationPipeline(),
                 new ArrayMethods(),
                 new BartSimpson(),
                 new Base64UrlAndJwtBase64(),
