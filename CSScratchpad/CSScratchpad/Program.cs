@@ -20,7 +20,7 @@ namespace CSScratchpad {
                 new CloneList(),
                 new CombineFiles(),
                 new CombineUrl(),
-                // new CombineXml(), // [NEED TO BE FIXED]
+                new CombineXml(), // [NEED TO BE FIXED]
                 new CompareAsAndIs(),
                 new CompareSingletonAndTransient(),
                 new CompareString(),
@@ -28,6 +28,7 @@ namespace CSScratchpad {
                 new CountCharacter(),
                 new CountDecimalPlaces(),
                 new DisectCakeBuild(),
+                new DisplayingList(),
                 new EmitEvents(),
                 new FindDuplicates(),
                 new FindFiles(),
@@ -75,7 +76,6 @@ namespace CSScratchpad {
                 new TestConfigy(),
                 new TestDatetimeUtil(),
                 new TestDecoratorPattern(),
-                new TestEmitEvents(),
                 new TestExy(),
                 new TestMaaya(),
                 new TestNvy(),

@@ -5,6 +5,18 @@ using System.Linq;
 using Scratch;
 
 namespace CSScratchpad.Script {
+    static class InternalHelper {
+        internal const Int32 Feigenbaum = 46692;
+
+        internal static Int32 GetRandomNumber(Int32 lowerBound, Int32 upperBound) {
+            Int32 seed = Guid.NewGuid().GetHashCode() % Feigenbaum;
+            return new Random(seed)
+                .Next(lowerBound, upperBound);
+        }
+
+        internal static Int32 GetRandomNumber(Int32 upperBound) => GetRandomNumber(0, upperBound);
+    }
+
     public class GenerateRandomizedList : Common, IRunnable {
         public void Run() {
             String filepath = GetDataPath("sample-list.txt");
@@ -23,7 +35,7 @@ namespace CSScratchpad.Script {
                 Int32 lookupContentCounter = 0;
                 var lookupContent = lookupGroup.ToList();
                 while (lookupContentCounter < lookupContent.Count) {
-                    Int32 randIdx = GetRandomNumber(lookupContentCounter +1);
+                    Int32 randIdx = InternalHelper.GetRandomNumber(lookupContentCounter +1);
                     String temp = lookupContent[randIdx];
                     lookupContent[randIdx] = lookupContent[lookupContentCounter];
                     lookupContent[lookupContentCounter] = temp;
@@ -34,12 +46,6 @@ namespace CSScratchpad.Script {
             }
 
             File.WriteAllLines(outputpath, randomizedList);
-        }
-
-        Int32 GetRandomNumber(Int32 upperBound) {
-            Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
-            var rnd = new Random(seed);
-            return rnd.Next(0, upperBound);
         }
     }
 }

@@ -306,7 +306,7 @@ namespace CSScratchpad.Script {
             const String Symbol = "~ ! @ # $ % ^ & * _ - + = ` | \\ ( ) { } [ ] : ; < > . ? /";
 
             static Int32 GenerateRandomNo(Int32 upperBound) {
-                Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
+                Int32 seed = Guid.NewGuid().GetHashCode() % InternalHelper.Feigenbaum;
                 var rnd = new Random(seed);
                 return rnd.Next(0, upperBound);
             }

@@ -355,11 +355,5 @@ namespace CSScratchpad.Script {
         #endregion
     }
 
-    internal static class InternalHelper {
-        internal static Int32 GetRandomNumber(Int32 lowerBound, Int32 upperBound) {
-            Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
-            var rnd = new Random(seed);
-            return rnd.Next(lowerBound, upperBound);
-        }
-    }
+    
 }

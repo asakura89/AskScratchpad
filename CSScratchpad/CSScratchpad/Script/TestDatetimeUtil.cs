@@ -533,19 +533,19 @@ namespace CSScratchpad.Script {
 
     public class SeededRandom {
         public Int32 GetRandomNumber() {
-            Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
+            Int32 seed = Guid.NewGuid().GetHashCode() % InternalHelper.Feigenbaum;
             var rnd = new Random(seed);
             return rnd.Next(0, 256);
         }
 
         public Int32 GetRandomNumber(Int32 lowerBound, Int32 upperBound) {
-            Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
+            Int32 seed = Guid.NewGuid().GetHashCode() % InternalHelper.Feigenbaum;
             var rnd = new Random(seed);
             return rnd.Next(lowerBound, upperBound);
         }
 
         public static Int32 GetRandomNumber2(Int32 lowerBound, Int32 upperBound) {
-            Int32 seed = Guid.NewGuid().GetHashCode() % 50001;
+            Int32 seed = Guid.NewGuid().GetHashCode() % InternalHelper.Feigenbaum;
             var rnd = new Random(seed);
             return rnd.Next(lowerBound, upperBound);
         }
