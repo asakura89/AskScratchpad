@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <smtpSettings>
+        <server>smtp.supermailservice.com</server>
+        <port>587</port>
+        <userName>SmtpUser_Admin</userName>
+        <password>100%SmtpPwd4Admin</password>
+        <useTls>false</useTls>
+    </smtpSettings>
+</configuration>
