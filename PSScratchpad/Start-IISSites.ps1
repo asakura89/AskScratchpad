@@ -5,10 +5,10 @@ Function GetTimeStamp() {
 }
 
 Function Log($message) {
-    $timest = $script:timestamp
+    $timest = $Script:timestamp
     If ($timest -Eq $null) {
-        $script:timestamp = GetTimeStamp
-        $timest = $script:timestamp
+        $Script:timestamp = GetTimeStamp
+        $timest = $Script:timestamp
     }
 
     $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"

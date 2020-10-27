@@ -10,5 +10,5 @@ $data = @(
 $counter = 1
 $data |
     Where-Object { $_.ToLower().Contains("an") } |
-    Select-Object @{Label="Filtered"; Expression={"{0}. {1}" -f $script:counter++,$_}}
+    Select-Object @{Label="Filtered"; Expression={"{0}. {1}" -f $Script:counter++,$_}}
 

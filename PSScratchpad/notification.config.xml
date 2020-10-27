@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <sites>
+        <site name="https://google.com" />
+        <site name="https://facebook" />
+    </sites>
+    <httpStatuses type="range">
+        <status code="500" andCode="600" />
+    </httpStatuses>
+    <httpStatuses type="specific">
+        <status code="500" />
+        <status code="503" />
+        <status code="501" />
+    </httpStatuses>
+    <smtpSettings>
+        <server>smtp.supermailservice.com</server>
+        <port>587</port>
+        <userName>SmtpUser_Admin</userName>
+        <password>100%SmtpPwd4Admin</password>
+        <useTls>false</useTls>
+    </smtpSettings>
+    <mailSettings>
+        <from email="automated_script@supermail_service.com" name="DO_NOT_REPLY Automated Script" />
+        <receivers>
+            <email>support@mailing-list.com</email>
+            <email>grand-support@mailing-list.com</email>
+        </receivers>
+        <ccs>
+            <email>email_cc@email.com</email>
+            <email>another-email-cc@email.com</email>
+        </ccs>
+        <subject>[Important] Super mail subject</subject>
+        <body>
+        </body>
+    </mailSettings>
+</configuration>

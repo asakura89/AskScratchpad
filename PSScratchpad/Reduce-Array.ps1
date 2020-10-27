@@ -11,7 +11,7 @@ $counter = 1
 $mapped = $data |
     Sort-Object -Descending { $_ } |
     Select-Object `
-        @{ Name = "Index";Expression = {($script:counter++)} }, `
+        @{ Name = "Index";Expression = {($Script:counter++)} }, `
         @{ Name = "Name";Expression = {$_} }
 
 $even = $mapped |

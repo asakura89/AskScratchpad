@@ -18,17 +18,17 @@ function GetTimeStamp() {
 }
 
 function Log($message, $starting = $false, $writeToScreen = $true) {
-    $timest = $script:timestamp
+    $timest = $Script:timestamp
     If ($timest -Eq $null) {
-        $script:timestamp = GetTimeStamp
-        $timest = $script:timestamp
+        $Script:timestamp = GetTimeStamp
+        $timest = $Script:timestamp
     }
 
-    $logdir = $script:scriptdir
-    If ([System.String]::IsNullOrEmpty($script:scriptdir)) {
+    $logdir = $Script:scriptdir
+    If ([System.String]::IsNullOrEmpty($Script:scriptdir)) {
         $logdir = $(Split-Path -parent $PSCommandPath)
     }
-    $logfile = "$($script:scriptdir)\$($logname)_$($timest).log"
+    $logfile = "$($Script:scriptdir)\$($logname)_$($timest).log"
     $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
     If ($writeToScreen) {
         Write-Host $logged

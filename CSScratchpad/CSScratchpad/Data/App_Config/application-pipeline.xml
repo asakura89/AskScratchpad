@@ -6,4 +6,10 @@
         <pipe type="CSScratchpad.Script.ApplicationPipeline.MyPipeline, CSScratchpad" method="LogTheApplicationStartPipelineContext" />
         <pipe type="CSScratchpad.Script.ApplicationPipeline.ApplicationStartPipeline, CSScratchpad" method="LoadMaterial" />
     </applicationPipeline>
+    <applicationPipeline name="pipe:ApplicationHandleRequest">
+        <pipe type="CSScratchpad.Script.ApplicationPipeline.ApplicationStartPipeline, CSScratchpad" method="LoadConfiguration" />
+        <pipe type="CSScratchpad.Script.ApplicationPipeline.ApplicationStartPipeline, CSScratchpad" method="LoadDatabase" />
+        <pipe type="CSScratchpad.Script.ApplicationPipeline.MyPipeline, CSScratchpad" method="LogTheApplicationStartPipelineContext" />
+        <pipe type="CSScratchpad.Script.ApplicationPipeline.ApplicationStartPipeline, CSScratchpad" method="LoadMaterial" />
+    </applicationPipeline>
 </configuration>

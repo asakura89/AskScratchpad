@@ -11,5 +11,5 @@ $counter = 1
 $data |
     Where-Object { $_.ToLower().StartsWith("le") -or $_.ToLower().EndsWith("el") -or ($_[0].ToString().ToLower() -eq "d") } |
     Sort-Object -Descending { $_ } |
-    Select-Object @{Label="Sorted"; Expression={"{0}. {1}" -f $script:counter++,$_}}
+    Select-Object @{Label="Sorted"; Expression={"{0}. {1}" -f $Script:counter++,$_}}
 
