@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <app title="">
+        <form key="" type="text" default="" />
+        <form key="" type="number" default="" />
+        <form key="" type="boolean" default="" />
+        <form key="" type="single-selection" default="">
+            <item key="" value="" />
+            <item key="" value="" />
+        </form>
+        <form key="" type="multi-selection" default=";">
+            <item key="" value="" />
+            <item key="" value="" />
+        </form>
+    </app>
+    <data filepath="" />
+    <data>
+        <item key="" value="" />
+        <item key="" value="" />
+    </data>
+</configuration>
