@@ -1,0 +1,211 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+    "breadcrumbs.enabled": true,
+    "clock.dateFormat": "hh:MM TT / dd.mm.yyyy",
+    "debug.inlineValues": true,
+    "debug.toolBarLocation": "docked",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": true,
+    "editor.fontFamily": "'Cascadia Code Light', Consolas, Monospace",
+    "editor.fontLigatures": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": false,
+    "editor.minimap.maxColumn": 20,
+    "editor.renderControlCharacters": true,
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "all",
+    "editor.renderWhitespace": "boundary",
+    "editor.stablePeek": true,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+    "editor.wordWrap": "off",
+    "explorer.autoReveal": false,
+    "explorer.confirmDelete": false,
+    "explorer.openEditors.visible": 2,
+    "files.associations": {
+      "*.config": "xml",
+      "**/*.linq": "csharp",
+      "**/*.asp": "html",
+      "**/*.aspx": "html",
+      "**/*.ascx": "html",
+      "**/*.cshtml": "razor",
+      "**/*.master": "html",
+      "**/*.asax": "html",
+      "**/*.eqx": "sql",
+      "**/*.ejx": "json",
+      "*.cshtml": "razor",
+      "*-log.txt": "log",
+      "log.*.txt": "log",
+      "*log.*.txt": "log",
+      "*log*.*": "log",
+      "*\\d{8}.\\d{6}*.txt": "log",
+      "log/*.txt": "log",
+      "logs/*.txt": "log",
+      "Log/*.txt": "log",
+      "Logs/*.txt": "log",
+      "log.*.*": "log",
+      "*log.*.*": "log",
+      "*.editorconfig": "properties",
+      ".editorconfig": "properties"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 100,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "**/*tmp*": true,
+      "**/obj/**": true,
+      "**/node_modules": false,
+      "**/bower_components": false
+    },
+    "files.trimTrailingWhitespace": false,
+    "gitlens.advanced.messages": {
+      "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.statusBar.enabled": false,
+    "gitlens.views.lineHistory.enabled": false,
+    "gitlens.views.repositories.files.layout": "tree",
+    "javascript.format.enable": false,
+    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationAfterEveryPipeline",
+    "powershell.integratedConsole.showOnStartup": false,
+    "powershell.powerShellDefaultVersion": "PowerShell Core 6 (x64)",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontFamily": "'Cascadia Code Light', 'Fira Code Retina', Consolas, Monospace",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    "todo.colors.light": {
+      "project": "#24adff",
+      "cancelled": "#dd1144",
+      "code": "#eb6000",
+      "comment": "#434241",
+      "done": "#87a924",
+      "projectStatistics": "#0067a5",
+      "tag": "#eb6000",
+      "tags": {
+        "background": [
+          "#e54545",
+          "#e54545",
+          "#e59f45",
+          "#e59f45",
+          "#4d91d6",
+          "#4d91d6",
+          "#e5d145",
+          "#e5d145",
+          "#ae81ff",
+          "#ae81ff"
+        ],
+        "foreground": [
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333"
+        ]
+      }
+    },
+    "todo.colors.dark": {
+      "project": "#24adff",
+      "cancelled": "#dd1144",
+      "code": "#eb6000",
+      "comment": "#434241",
+      "done": "#87a924",
+      "projectStatistics": "#0067a5",
+      "tag": "#eb6000",
+      "tags": {
+        "background": [
+          "#e54545",
+          "#e54545",
+          "#e59f45",
+          "#e59f45",
+          "#4d91d6",
+          "#4d91d6",
+          "#e5d145",
+          "#e5d145",
+          "#ae81ff",
+          "#ae81ff"
+        ],
+        "foreground": [
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333",
+          "#333"
+        ]
+      }
+    },
+    "todo.symbols.box": "[ ]",
+    "todo.symbols.cancelled": "[-]",
+    "todo.symbols.done": "[x]",
+    "todo.tags.names": [
+      "critical",
+      "Critical",
+      "high",
+      "High",
+      "medium",
+      "Medium",
+      "low",
+      "Low",
+      "today",
+      "Today"
+    ],
+    "todo.timekeeping.created.format": "DD.MM.YYYY HH:mm",
+    "todo.timekeeping.finished.format": "DD.MM.YYYY HH:mm",
+    "todo.timekeeping.started.format": "DD.MM.YYYY HH:mm",
+    "typescript.format.enable": false,
+    "vsicons.projectDetection.autoReload": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": true,
+    "workbench.tree.indent": 16,
+    "xmlTools.enforcePrettySelfClosingTagOnFormat": true,
+    "xmlTools.splitAttributesOnFormat": true,
+    "editor.largeFileOptimizations": false,
+    "window.titleSeparator": " • ",
+    "workbench.colorCustomizations": {},
+    "editor.accessibilitySupport": "off",
+    "editor.suggest.filterGraceful": false,
+    "javascript.format.semicolons": "insert",
+    "workbench.editor.untitled.labelFormat": "name",
+    "debug.console.fontFamily": "'Cascadia Code Light', default",
+    "partialDiff.enableTelemetry": false,
+    "search.searchEditor.defaultNumberOfContextLines": 2,
+    "search.searchEditor.reusePriorSearchConfiguration": true,
+    "search.searchOnType": false,
+    "search.showLineNumbers": true,
+    "workbench.colorTheme": "Plastic",
+    "workbench.editor.pinnedTabSizing": "shrink"
+  }
+}
