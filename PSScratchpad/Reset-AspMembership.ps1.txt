@@ -1,0 +1,2 @@
+.\Reset-AspMembership.ps1 -Mode "L" -ConnString "data source=******;initial catalog=******;user id=******;password=******;"
+.\Reset-AspMembership.ps1 -Mode "V" -AppName "MyApp" -Username "axel_63" -ConnString "data source=******;initial catalog=******;user id=******;password=******;"
