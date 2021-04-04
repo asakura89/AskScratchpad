@@ -126,3 +126,17 @@ s-stopped-procs
 
 */
 
+
+
+SELECT
+REPLACE_STR(LogFileName, 'D:\\Data\\Downloads\\logs_20210121\\logs_20210121\\', '') AS LogFileName,
+c-ip AS Client,
+cs-uri-stem AS Url,
+sc-status AS HttpStatus,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+/* INTO '[OUTFILEPATH]\Get-AllTroubledRequestByHttpStatus.csv' */
+FROM '[LOGFILEPATH]'
+WHERE sc-status BETWEEN 400 AND 600
+GROUP BY LogFilename, Client, Url, HttpStatus, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+ORDER BY TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) DESC
