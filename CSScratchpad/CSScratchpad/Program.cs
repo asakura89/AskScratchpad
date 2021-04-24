@@ -35,6 +35,7 @@ namespace CSScratchpad {
                 new FormatJson(),
                 new FormatJson2(),
                 new FormatJson3(),
+                new FormatJson4(),
                 new GenerateId(),
                 new GenerateMD5Base64(),
                 new GenerateRandomizedList(),
