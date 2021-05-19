@@ -1,6 +1,6 @@
 Clear-Host
 
-$FeigenBaum = 46692
+$FeigenBaum = 46692016
 
 function GetRandomWLowerbound([System.Int32]$lowerbound, [System.Int32]$upperbound) {
     $seed = [System.Guid]::NewGuid().GetHashCode() % $FeigenBaum

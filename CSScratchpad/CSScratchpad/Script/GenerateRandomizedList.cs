@@ -6,7 +6,7 @@ using Scratch;
 
 namespace CSScratchpad.Script {
     static class InternalHelper {
-        internal const Int32 Feigenbaum = 46692;
+        internal const Int32 Feigenbaum = 46692016;
 
         internal static Int32 GetRandomNumber(Int32 lowerBound, Int32 upperBound) {
             Int32 seed = Guid.NewGuid().GetHashCode() % Feigenbaum;

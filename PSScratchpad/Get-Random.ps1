@@ -7,8 +7,8 @@ $range = 1..10
     Select-Object -ExpandProperty "50001"
 
 [System.Collections.Generic.List[System.Int32]]$secondSeeds = $range |
-    Select-Object @{L="46692"; E={((New-Guid).GetHashCode() % 46692)}} |
-    Select-Object -ExpandProperty "46692"
+    Select-Object @{L="46692016"; E={((New-Guid).GetHashCode() % 46692016)}} |
+    Select-Object -ExpandProperty "46692016"
 
 $firstSeeds |
     Sort-Object { $_ }
