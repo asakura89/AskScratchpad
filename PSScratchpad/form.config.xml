@@ -1,21 +1,52 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <app title="">
-        <form key="" type="text" default="" />
-        <form key="" type="number" default="" />
-        <form key="" type="boolean" default="" />
-        <form key="" type="single-selection" default="">
-            <item key="" value="" />
-            <item key="" value="" />
+    <!-- schema -->
+    <app title="Simple Configuration UI"
+         xmlns:text="https://github.com/asakura89/eksmaru/text"
+         xmlns:mtext="https://github.com/asakura89/eksmaru/multiline-text"
+         xmlns:number="https://github.com/asakura89/eksmaru/number"
+         xmlns:boolean="https://github.com/asakura89/eksmaru/boolean"
+         xmlns:sselect="https://github.com/asakura89/eksmaru/single-select"
+         xmlns:mselect="https://github.com/asakura89/eksmaru/multi-select">
+
+        <form key="DatabaseProvider" type="text" default="SQLClient" />
+        <text:databaseProvider default="SQLClient" />
+        <text:database-provider default="SQLClient" />
+
+        <form key="RetyMax" type="number" default="10" />
+        <number:rety-max default="10" />
+
+        <form key="EnableMFA" type="boolean" default="true" />
+        <boolean:enable-mfa default="true" />
+
+        <form key="Binding" type="single-selection" default="http.artifact">
+            <item key="http.binding" value="http" />
+            <item key="http.artifact" value="artifact" />
         </form>
-        <form key="" type="multi-selection" default=";">
-            <item key="" value="" />
-            <item key="" value="" />
+        <sselect:binding default="http-artifact">
+            <http-binding value="http" />
+            <http-artifact value="artifact" />
+        </sselect:binding>
+
+        <form key="Attributes" type="multi-selection" default="fqn;email">
+            <item key="fqn" value="Fully Qualified Name" />
+            <item key="email" value="Email" />
+            <item key="role" value="Role" />
         </form>
+        <mselect:attributes default="fqn;email">
+            <fqn value="Fully Qualified Name" />
+            <email value="Email" />
+            <role value="Role" />
+        </mselect:attributes>
     </app>
+    
+    <!-- if data kept separated from schema -->
     <data filepath="" />
-    <data>
-        <item key="" value="" />
-        <item key="" value="" />
+
+    <!-- if data in the same as schema -->
+    <data xmlns:item="https://github.com/asakura89/eksmaru/item">
+        <item key="DatabaseProvider" value="PostgresClient" />
+        <item:databaseProvider value="PostgresClient" />
+        <item:database-provider value="PostgresClient" />
     </data>
 </configuration>
