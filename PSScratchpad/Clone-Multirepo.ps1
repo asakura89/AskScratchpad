@@ -1,0 +1,61 @@
+Clear-Host
+
+$repos = @(
+    "https://github.com/asakura89/AkuForm.git",
+    "https://github.com/asakura89/Akuma.git",
+    "https://github.com/asakura89/AppSea.git",
+    "https://github.com/asakura89/Arvy.git",
+    "https://github.com/asakura89/asakura89.git",
+    "https://github.com/asakura89/AskCounter.git",
+    "https://github.com/asakura89/AskScratchpad.git",
+    "https://github.com/asakura89/AspNetMembershipPasswordReset.git",
+    "https://github.com/asakura89/Backstreet.git",
+    "https://github.com/asakura89/BisaCSharp.git",
+    "https://github.com/asakura89/blog.git",
+    "https://github.com/asakura89/Buruku.git",
+    "https://github.com/asakura89/ChiisanaIroiro.git",
+    "https://github.com/asakura89/ColorGen.git",
+    "https://github.com/asakura89/Databossy.git",
+    "https://github.com/asakura89/Dfy.git",
+    "https://github.com/asakura89/Dyana.git",
+    "https://github.com/asakura89/Dyandra.git",
+    "https://github.com/asakura89/Eksmaru.git",
+    "https://github.com/asakura89/Emi.git",
+    "https://github.com/asakura89/Exy.git",
+    "https://github.com/asakura89/FilesCleanUp.git",
+    "https://github.com/asakura89/GitIgnoreBak.git",
+    "https://github.com/asakura89/Haru.git",
+    "https://github.com/asakura89/Itsu.git",
+    "https://github.com/asakura89/Jikame.git",
+    "https://github.com/asakura89/KamenReader.Excel.git",
+    "https://github.com/asakura89/KamenReader.git",
+    "https://github.com/asakura89/kayo.js.git",
+    "https://github.com/asakura89/Keywielder.git",
+    "https://github.com/asakura89/led-matrix-simulator.git",
+    "https://github.com/asakura89/Maaya.git",
+    "https://github.com/asakura89/Mana.git",
+    "https://github.com/asakura89/Minimanimoji.git",
+    "https://github.com/asakura89/Nino.git",
+    "https://github.com/asakura89/Notes.git",
+    "https://github.com/asakura89/Nvy.git",
+    "https://github.com/asakura89/Ooki.git",
+    "https://github.com/asakura89/Payroll.git",
+    "https://github.com/asakura89/personalblog.git",
+    "https://github.com/asakura89/Pocho.git",
+    "https://github.com/asakura89/Puru.git",
+    "https://github.com/asakura89/Reflx.git",
+    "https://github.com/asakura89/Ria.git",
+    "https://github.com/asakura89/Riku.git",
+    "https://github.com/asakura89/RyaNG.git",
+    "https://github.com/asakura89/Serena.git",
+    "https://github.com/asakura89/Shiro.git",
+    "https://github.com/asakura89/Stripped.git",
+    "https://github.com/asakura89/Tipe.git",
+    "https://github.com/asakura89/Varya.git"
+)
+    
+ForEach ($repo In $repos) {
+    Write-Host "$repo"
+    $repoName = [System.Text.RegularExpressions.Regex]::Match($repo, "(?:https://github.com/asakura89/(?<name>.+)\.git)").Groups["name"].Value
+    git clone $repo "E:\asakura89-project\release\$repoName"
+}
