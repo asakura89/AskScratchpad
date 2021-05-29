@@ -1,0 +1,1 @@
+= Table.TransformColumnTypes(#"Promoted Headers",{{"LogFileName", type text}, {"Client", type text}, {"Url", type text}, {"HttpStatus", Int64.Type}, {"Time", type datetime}, {"RequestCount", Int64.Type}})
