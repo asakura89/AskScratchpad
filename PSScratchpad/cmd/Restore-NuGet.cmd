@@ -6,7 +6,7 @@ goto :init
     set cachednugetdir==%LocalAppData%\NuGet
     set cachednuget=%cachednugetdir%\nuget.latest.exe
     set nugetdwldurl="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-    set nugetdownload=@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest '%nugetdwldurl%' -OutFile '%cachednuget%'"
+    set nugetdownload=@powershell -NoProfile -ExecutionPolicy Unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest '%nugetdwldurl%' -OutFile '%cachednuget%'"
 
 :prepare-nuget
     if exist %cachednuget% goto restore-package
