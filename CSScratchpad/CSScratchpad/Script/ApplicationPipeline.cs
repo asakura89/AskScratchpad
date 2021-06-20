@@ -1,4 +1,5 @@
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,40 +12,110 @@ using Formatting = Newtonsoft.Json.Formatting;
 
 namespace CSScratchpad.Script {
     public class ApplicationPipeline : Common, IRunnable {
+        public class XmlPipelinesDefinition {
+            public String Name { get; }
+            public IList<XmlPipelineActionDefinition> Actions { get; }
+
+            public XmlPipelinesDefinition(String name, IList<XmlPipelineActionDefinition> actions) {
+                if (String.IsNullOrEmpty(name))
+                    throw new ArgumentNullException(nameof(name));
+
+                if (actions == null || !actions.Any())
+                    throw new ArgumentNullException(nameof(actions));
+
+                Name = name;
+                Actions = actions;
+            }
+        }
+
+        public class XmlPipelineActionDefinition {
+            public String Type { get; }
+            public String Assembly { get; }
+            public String Method { get; }
+
+            public XmlPipelineActionDefinition(String type, String assembly, String method) {
+                if (String.IsNullOrEmpty(type))
+                    throw new ArgumentNullException(nameof(type));
+
+                if (String.IsNullOrEmpty(assembly))
+                    throw new ArgumentNullException(nameof(assembly));
+
+                if (String.IsNullOrEmpty(method))
+                    throw new ArgumentNullException(nameof(method));
+
+                Type = type;
+                Assembly = assembly;
+                Method = method;
+            }
+        }
+
+        XmlPipelineActionDefinition MapConfigToActionDefinition(XmlNode actionConfig) {
+            String typeValue = GetAttributeValue(actionConfig, "type");
+            String methodValue = GetAttributeValue(actionConfig, "method");
+            var typeNameRgx = new Regex("^(?<TypeN>.+)(?:,\\s{1,}?)(?<AsmN>.+)$", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
+            String typeName = typeNameRgx.Match(typeValue).Groups["TypeN"].Value;
+            String asmName = typeNameRgx.Match(typeValue).Groups["AsmN"].Value;
+            if (String.IsNullOrEmpty(typeName) || String.IsNullOrEmpty(asmName))
+                throw new InvalidOperationException($"Wrong Type or Assembly configuration. {typeValue}.");
+
+            if (String.IsNullOrEmpty(methodValue))
+                throw new InvalidOperationException($"Wrong Method configuration. {methodValue}.");
+
+            return new XmlPipelineActionDefinition(typeName, asmName, methodValue);
+        }
+
+        XmlPipelinesDefinition MapConfigToPipelineDefinition(XmlNode pipelineConfig) {
+            IList<XmlPipelineActionDefinition> actions =
+                pipelineConfig
+                    .SelectNodes("pipe")
+                    .Cast<XmlNode>()
+                    .Select(MapConfigToActionDefinition)
+                    .ToList();
+            
+            return new XmlPipelinesDefinition(
+                GetAttributeValue(pipelineConfig, "name"),
+                actions);
+        }
+
         public void Run() {
             String configPath = GetDataPath("App_Config\\application-pipeline.xml");
             XmlDocument config = LoadFromPath(configPath);
-            String pipelineSelector = $"configuration/applicationPipeline[@name='pipe:ApplicationStart']";
-            XmlNode pipelineConfig = config.SelectSingleNode(pipelineSelector);
-            if (pipelineConfig != null) {
-                IEnumerable<(String TypeName, String MethodName)> pipes = pipelineConfig
-                    .SelectNodes("pipe")
-                    .Cast<XmlNode>()
-                    .Select(pipeNode => (TypeName: GetAttributeValue(pipeNode, "type"), MethodName: GetAttributeValue(pipeNode, "method")));
+            String pipelinesSelector = $"configuration/applicationPipeline";
+            var pipelinesConfig = config.SelectNodes(pipelinesSelector).Cast<XmlNode>();
+            if (pipelinesConfig == null || !pipelinesConfig.Any())
+                throw new InvalidOperationException($"{pipelinesSelector} wrong configuration.");
 
-                var context = new ApplicationStartPipelineContext();
-                var typeNameRgx = new Regex("^(?<TypeN>.+)(?:,\\s{1,}?)(?<AsmN>.+)$", RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                foreach ((String TypeName, String MethodName) pipe in pipes) {
-                    String typeName = typeNameRgx.Match(pipe.TypeName).Groups["TypeN"].Value;
-                    String asmName = typeNameRgx.Match(pipe.TypeName).Groups["AsmN"].Value;
-                    if (String.IsNullOrEmpty(typeName) || String.IsNullOrEmpty(asmName))
-                        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.TypeName}");
+            if (pipelinesConfig != null) {
+                IList<XmlPipelinesDefinition> pipelines = pipelinesConfig
+                    .Select(MapConfigToPipelineDefinition)
+                    .ToList();
 
-                    Assembly asm = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(appDAsm => appDAsm.GetName().Name == asmName);
-                    if (asm == null)
-                        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.TypeName}");
+                Dbg(pipelines);
+                //IEnumerable<(String TypeName, String MethodName)> pipes = pipelineConfig
+                //    .SelectNodes("pipe")
+                //    .Cast<XmlNode>()
+                //    .Select(pipeNode => (TypeName: GetAttributeValue(pipeNode, "type"), MethodName: GetAttributeValue(pipeNode, "method")));
 
-                    Type type = asm.GetTypes().FirstOrDefault(asmType => asmType.FullName.Replace("+", ".") == typeName);
-                    if (type == null)
-                        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.TypeName}");
+                //var context = new ApplicationStartPipelineContext();
+                
+                //foreach ((String TypeName, String MethodName) pipe in pipes) {
+                    
 
-                    Object instance = Activator.CreateInstance(type);
-                    MethodInfo methodInfo = instance.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public).FirstOrDefault(method => method.Name == pipe.MethodName);
-                    if (methodInfo == null)
-                        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.MethodName}");
+                //    Assembly asm = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(appDAsm => appDAsm.GetName().Name == asmName);
+                //    if (asm == null)
+                //        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.TypeName}");
 
-                    methodInfo.Invoke(instance, new[] { context });
-                }
+                //    Type type = asm.GetTypes().FirstOrDefault(asmType => asmType.FullName.Replace("+", ".") == typeName);
+                //    if (type == null)
+                //        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.TypeName}");
+
+                //    Object instance = Activator.CreateInstance(type);
+                //    MethodInfo methodInfo = instance.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public).FirstOrDefault(method => method.Name == pipe.MethodName);
+                //    if (methodInfo == null)
+                //        throw new InvalidOperationException($"{pipelineSelector} wrong configuration. {pipe.MethodName}");
+
+                //    methodInfo.Invoke(instance, new[] { context });
+                //}
             }
         }
 

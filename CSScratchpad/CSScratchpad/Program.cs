@@ -81,6 +81,7 @@ namespace CSScratchpad {
                 new TestMaaya(),
                 new TestNvy(),
                 new TestPOCOBuilder(),
+                new TestQueryCrafter(),
                 new TestSecurity(),
                 new TestShiro(),
                 new TestTryParse(),
