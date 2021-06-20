@@ -120,6 +120,7 @@
     <Compile Include="Script\DisplayingList.cs" />
     <Compile Include="Script\EmitEvents.cs" />
     <Compile Include="Script\FormatJson4.cs" />
+    <Compile Include="Script\Motoko.cs" />
     <Compile Include="Script\PrintTypeFullName.cs" />
     <Compile Include="Script\PrintExpressionBody.cs" />
     <Compile Include="Script\PrintDynamic.cs" />
