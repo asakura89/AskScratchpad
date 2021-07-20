@@ -131,7 +131,7 @@ s-stopped-procs
 SELECT
 REPLACE_STR(LogFileName, 'D:\\Data\\Downloads\\logs_20210121\\logs_20210121\\', '') AS LogFileName,
 c-ip AS Client,
-cs-uri-stem AS Url,
+cs-uri-stem + cs-uri-query AS Url,
 sc-status AS HttpStatus,
 TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
 COUNT(0) AS RequestCount
@@ -139,4 +139,22 @@ COUNT(0) AS RequestCount
 FROM '[LOGFILEPATH]'
 WHERE sc-status BETWEEN 400 AND 600
 GROUP BY LogFilename, Client, Url, HttpStatus, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
+ORDER BY TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) DESC
+
+
+
+
+SELECT
+REPLACE_STR(LogFileName, 'D:\\Data\\Downloads\\logs_20210121\\logs_20210121\\', '') AS LogFileName,
+c-ip AS Client,
+cs-uri-stem AS Url,
+STRCAT(cs-uri-stem, STRCAT('?', cs-uri-query)) AS FullUrl,
+cs(Referer) AS Referer,
+sc-status AS HttpStatus,
+TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) AS [Time],
+COUNT(0) AS RequestCount
+INTO '[OUTFILEPATH]\IIS_Log.csv'
+FROM '[LOGFILEPATH]'
+WHERE sc-status BETWEEN 400 AND 600
+GROUP BY LogFilename, Client, Url, FullUrl, Referer, HttpStatus, TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600))
 ORDER BY TO_LOCALTIME(QUANTIZE(TO_TIMESTAMP(date, time), 3600)) DESC
