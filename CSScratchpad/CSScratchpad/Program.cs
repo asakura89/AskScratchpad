@@ -30,6 +30,7 @@ namespace CSScratchpad {
                 new DisectCakeBuild(),
                 new DisplayingList(),
                 new EmitEvents(),
+                new EventHandling(),
                 new FindDuplicates(),
                 new FindFiles(),
                 new FormatJson(),

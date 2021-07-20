@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <events>
+        <event name="ClassA:ClassAStart" type="CSScratchpad.Script.EventHandling.EventList, CSScratchpad" method="OnClassAStarted" />
+        <event name="ClassA:ClassAFinish" onlyOnce="true" type="CSScratchpad.Script.EventHandling.EventList, CSScratchpad" method="OnClassAFinished" />
+        <event name="ClassA:ClassAStart" type="CSScratchpad.Script.EventHandling.EventList, CSScratchpad" method="OnGlobalStarted" />
+        <event name="ClassA:ClassAFinish" type="CSScratchpad.Script.EventHandling.EventList, CSScratchpad" method="OnGlobalFinished" />
+    </events>
+</configuration>
