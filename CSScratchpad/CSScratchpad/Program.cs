@@ -46,6 +46,7 @@ namespace CSScratchpad {
                 new HostAWcf(),
                 new HostAWebApi(),
                 new ManipulateString(),
+                new Motoko(),
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
                 new PrintDir(),

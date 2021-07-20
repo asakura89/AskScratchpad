@@ -4,7 +4,7 @@ using Scratch;
 namespace CSScratchpad.Script {
     class Motoko : Common, IRunnable {
         public void Run() {
-            IWebAppAnalytics appanx = new WebAppAnalytics(new InMemoryProvider(), new AspWebFormVisitorTracker());
+            IWebAppAnalytics appanx = new WebAppAnalytics(new InMemoryStorageProvider(), new AspWebFormVisitorTracker());
 
             appanx.Track("site accessed");
             appanx.Page();
@@ -17,7 +17,7 @@ namespace CSScratchpad.Script {
             appanx.Reset();
 
 
-            INonWebAppAnalytics desktanx = new NonWebAppAnalytics(new InMemoryProvider(), new WinFormVisitorTracker());
+            INonWebAppAnalytics desktanx = new NonWebAppAnalytics(new InMemoryStorageProvider(), new WinFormVisitorTracker());
 
             desktanx.Track("app opened");
             desktanx.Screen();
@@ -29,22 +29,41 @@ namespace CSScratchpad.Script {
         }
 
         // tracker cookie representation
-        public class AppAnxTracked {
+        public class TrackedVisitor {
             public String VisitorId { get; set; }
             public String UserId { get; set; }
         }
 
         // tracker cookie manager
         public interface IVisitorTracker {
-            AppAnxTracked Get();
+            String GetAppId();
+            void TrackNewVisitor();
+            TrackedVisitor GetVisitor();
+            void RemoveTracker();
         }
 
         public class AspWebFormVisitorTracker : IVisitorTracker {
-            public AppAnxTracked Get() => new AppAnxTracked();
+            public String GetAppId() => throw new NotImplementedException();
+
+            public void TrackNewVisitor() => throw new NotImplementedException();
+
+            public TrackedVisitor GetVisitor() => new TrackedVisitor();
+
+            public void RemoveTracker() {
+
+            }
         }
 
         public class WinFormVisitorTracker : IVisitorTracker {
-            public AppAnxTracked Get() => new AppAnxTracked();
+            public String GetAppId() => throw new NotImplementedException();
+
+            public void TrackNewVisitor() => throw new NotImplementedException();
+
+            public TrackedVisitor GetVisitor() => new TrackedVisitor();
+
+            public void RemoveTracker() {
+                
+            }
         }
 
         public interface IStorageProvider {
@@ -55,7 +74,7 @@ namespace CSScratchpad.Script {
             
         }
 
-        public class InMemoryProvider : IStorageProvider {
+        public class InMemoryStorageProvider : IStorageProvider {
             
         }
 
@@ -78,12 +97,21 @@ namespace CSScratchpad.Script {
                 this.tracker = tracker ?? throw new ArgumentNullException(nameof(tracker));
             }
 
-            public void Track(String activity) {
-                
-            }
+            String GenerateId() => Guid.NewGuid().ToString("N");
+
+            public void Track(String activity) => Track(activity, String.Empty);
 
             public void Track(String activity, String data) {
-                
+                TrackedVisitor visitor = tracker.GetVisitor();
+                storage.RecordTrackingData(new AnalyticsTracking {
+                    AppId = ,
+                    TrackingId = _GenerateNewId(),
+                    Activity = activity,
+                    Data = String.Empty,
+                    TrackedAt = DateTime.Now,
+                    VisitorId = visitor.VisitorId,
+                    UserId = visitor.UserId
+                });
             }
 
             public void Identify(String username) {
@@ -103,7 +131,7 @@ namespace CSScratchpad.Script {
             }
 
             public void Reset() {
-                
+                tracker.RemoveTracker();
             }
 
             // I dont think this is necessary for now
@@ -151,8 +179,8 @@ namespace CSScratchpad.Script {
         //}
 
         // Register and generate new Id here before using analytics system
-        public class AppAnxAplication {
-            public String AnxId { get; set; } // Unique Id per analytics instance. Set this as unique per site if possible.
+        public class AppAnxRegistration {
+            public String RegistrationId { get; set; } // Unique Id per analytics instance. Set this as unique per site if possible.
             public String App { get; set; } // Application name that host the analytics
         }
 
