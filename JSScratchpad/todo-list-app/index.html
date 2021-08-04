@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>App</title>
+        <!--<link rel="stylesheet" type="text/css" href="style.css" />-->
+        <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
+        <script type="module" src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- <script type="module" src="node_modules/vue/dist/vue.common.js"></script>
+        <script type="module" src="node_modules/vue/dist/vue.esm.browser.js"></script> -->
+        <script type="module" src="node_modules/vue/dist/vue.js"></script>
+        <!-- <script type="module" src="node_modules/vue/dist/vue.min.js"></script> -->
+        <script type="module" src="node_modules/uiv/dist/uiv.min.js"></script>
+
+        <!-- <script type="module" src="comps/todo-edit-modal.vue.js"></script> -->
+        <script type="module" src="index.js"></script>
+    </head>
+    <body>
+        <!--
+            <div id="app">
+            {{message}}
+            </div>
+            -->
+
+        <section class="todoapp modal-dialog">
+            <section class="modal-content">
+                <header class="modal-header">
+                    <button @click="OpenAddTaskModal">Add task</button>
+                    <input
+                        class="new-todo"
+                        autocomplete="off"
+                        placeholder="Type your todo list"
+                        v-model="newTodo"
+                        @keyup.enter="addTodo">
+                    <button class="new-todo-button" @click="addTodo" v-show="newTodo.length > 0"></button>
+                </header>
+                <section class="modal-body" v-show="todos.length" v-cloak>
+                    <div class="completed-wrapper">
+                        <input id="toggle-all" class="toggle-all" type="checkbox" v-model="allDone">
+                        <label for="toggle-all">Complete all tasks</label>
+                        <button class="clear-completed" @click="removeCompleted">
+                            Clear completed
+                        </button>
+                    </div>
+                    <ul class="todo-list">
+                        <li
+                            class="todo"
+                            v-for="todo in filteredTodos" 
+                            :key="todo.id"
+                            :class="{ completed: todo.completed, editing: todo == editedTodo }">
+                            <div class="view">
+                                <input class="toggle" type="checkbox" v-model="todo.completed">
+                                <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
+                                <button class="destroy" @click="removeTodo(todo)"></button>
+                            </div>
+                            <input class="edit" type="text"
+                                v-model="todo.title"
+                                v-todo-focus="todo == editedTodo"
+                                @blur="doneEdit(todo)"
+                                @keyup.enter="doneEdit(todo)"
+                                @keyup.esc="cancelEdit(todo)">
+                        </li>
+                    </ul>
+                </section>
+                <footer class="modal-footer" v-show="todos.length" v-cloak>
+                    <span class="todo-count">
+                        <strong>{{ remaining }}</strong> {{ remaining | pluralize }} left
+                    </span>
+                    <ul class="filters">
+                        <li><a href="#/all" :class="{ selected: visibility == 'all' }">All</a></li>
+                        <li><a href="#/active" :class="{ selected: visibility == 'active' }">Uncomplete</a></li>
+                        <li><a href="#/completed" :class="{ selected: visibility == 'completed' }">Completed</a></li>
+                    </ul>
+                </footer>
+            </section>
+        </section>
+        <TodoEditModal>
+            
+        </TodoEditModal>
+    </body>
+</html>

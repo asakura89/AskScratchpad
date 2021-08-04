@@ -18,7 +18,7 @@
             <p :class="jobHighlighted">Job: {{job}}</p>
             <p :class="websiteHighlighted">Website: <a :href="website">Link</a></p>
             <br/>
-            <span v-html="jobBadge"></span>
+            <!-- <span v-html="jobBadge"></span> -->
             <br/>
             <button v-on:click="Highlight(false)">Prev</button>
             <button @click="Highlight(true)">Next</button>
