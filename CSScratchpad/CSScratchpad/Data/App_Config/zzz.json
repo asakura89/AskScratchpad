@@ -1,0 +1,21 @@
+{
+    "events": [
+        {
+            "name": "AnotherAppStart",
+            "type": "CSScratchpad.Script.EmitEvents.AnotherAppStart, CSScratchpad",
+            "event": "App.Start",
+            "put": "after:CustomAppStart"
+        },
+        {
+            "name": "AnotherAppStop",
+            "type": "CSScratchpad.Script.EmitEvents.AnotherAppStop, CSScratchpad",
+            "event": "App.Stop",
+            "put": "after:CustomAppStop"
+        },
+        {
+            "name": "CustomAppError",
+            "type": "CSScratchpad.Script.EmitEvents.CustomAppError, CSScratchpad",
+            "event": "App.Error"
+        }
+    ]
+}

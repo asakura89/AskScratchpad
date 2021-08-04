@@ -26,6 +26,7 @@ namespace CSScratchpad {
                 new CountCharacter(),
                 new CountDecimalPlaces(),
                 new DisectCakeBuild(),
+                new EmitEvents(),
                 new FindDuplicates(),
                 new FindFiles(),
                 new FormatJson(),
@@ -58,6 +59,8 @@ namespace CSScratchpad {
                 new PrintUri(),
                 new ReadAppConfigSection(),
                 // new RunCmd(), // [NEED TO BE FIXED]
+                new SelfHostAspWebApi(),
+                new SelfHostTheWcf(),
                 new ShowCacheControl(),
                 new SimpleStickyNotesDatetimeFromFloat(),
                 new TestAdvancedBuilderPattern(),

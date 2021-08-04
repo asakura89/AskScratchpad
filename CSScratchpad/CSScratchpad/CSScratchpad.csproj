@@ -85,9 +85,12 @@
     <Compile Include="Others\Task\TaskModel.cs" />
     <Compile Include="Others\Task\TaskService.cs" />
     <Compile Include="Others\Turkey\WildTurkey.cs" />
+    <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\AccessOutlookTaskRestApi.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\EmitEvents.cs" />
+    <Compile Include="Script\PrintTypeFullName.cs" />
     <Compile Include="Script\PrintExpressionBody.cs" />
     <Compile Include="Script\PrintDynamic.cs" />
     <Compile Include="Script\PrintHashCode.cs" />
@@ -108,6 +111,8 @@
     <Compile Include="Script\PrintLookup.cs" />
     <Compile Include="Script\GenerateRandomizedList.cs" />
     <Compile Include="Script\PrintCharCode.cs" />
+    <Compile Include="Script\SelfHostAspWebApi.cs" />
+    <Compile Include="Script\SelfHostTheWcf.cs" />
     <Compile Include="Script\TestDecoratorPattern.cs" />
     <Compile Include="Script\TestAdvancedBuilderPattern.cs" />
     <Compile Include="Script\TestAnonymous.cs" />
@@ -161,6 +166,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Data\App_Config\conf-1.json.old">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\conf.example">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\conf.ex">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\conf.json.disabled">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\volcanoconf.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\zzz.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\x.conf.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\conf-2.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\App_Config\conf-1.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\Dyana-master.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -227,5 +259,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,7 @@ using System.Text;
 using Scratch;
 
 namespace CSScratchpad.Script {
-    public static class StringExt {
+    public static class QueryCrafterStringExt {
         public static String TrimStart(this String target, String trimString) {
             String result = target;
             while (result.StartsWith(trimString))

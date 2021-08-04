@@ -1,0 +1,14 @@
+{
+    "volcano": [
+        {
+            "name": "FirstThing",
+            "value": "volvo",
+            "put": "before:null"
+        },
+        {
+            "name": "SecondThing",
+            "value": "verona",
+            "put": "after:null"
+        }
+    ]
+}
