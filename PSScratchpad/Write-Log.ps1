@@ -1,38 +1,21 @@
 Clear-Host
 
-#:< global config >:#
-$scriptdir = $(Split-Path -parent $PSCommandPath)
-
-#:< Log config >:#
-$logname = "test-writelog"
-$timestamp = $null
-
-function GetTimeStamp() {
-    return [System.DateTime]::Now.ToString("yyyyMMddHHmm")
-}
-
 function Log($message, $starting = $false, $writeToScreen = $true) {
-    $timest = $Script:timestamp
-    If ($timest -Eq $null) {
-        $Script:timestamp = GetTimeStamp
-        $timest = $Script:timestamp
-    }
+    $scriptfile = (Get-Item $PSCommandPath)
+    $logdir = $scriptfile.Directory
+    $logname = "$($scriptfile.BaseName)_$([System.DateTime]::Now.ToString("yyyyMMddHHmm")).log"
+    $logfile = [System.IO.Path]::Combine($logdir, $logname)
 
-    $logdir = $Script:scriptdir
-    If ([System.String]::IsNullOrEmpty($Script:scriptdir)) {
-        $logdir = $(Split-Path -parent $PSCommandPath)
-    }
-    $logfile = "$($Script:scriptdir)\$($logname)_$($timest).log"
-    $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
+    $logmsg = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
     If ($writeToScreen) {
-        Write-Host $logged
+        Write-Host $logmsg
     }
 
     If ($starting) {
-        $logged | Out-File -Encoding "UTF8" -FilePath $logfile
+        $logmsg | Out-File -Encoding "UTF8" -FilePath $logfile
     }
     Else {
-        $logged | Add-Content -Encoding "UTF8" -Path $logfile
+        $logmsg | Add-Content -Encoding "UTF8" -Path $logfile
     }
 }
 

@@ -2,8 +2,8 @@
 Clear-Host
 
 function Log([System.String]$message) {
-    $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
-    Write-Host $logged
+    $logmsg = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
+    Write-Host $logmsg
 }
 
 function GetExceptionMessage([System.Exception]$ex) {

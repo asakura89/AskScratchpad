@@ -1,8 +1,8 @@
 Clear-Host
 
 function Log($message) {
-    $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
-    Write-Host $logged
+    $logmsg = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
+    Write-Host $logmsg
 }
 
 function Ping([System.String]$url) {

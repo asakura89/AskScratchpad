@@ -1,18 +1,8 @@
 Clear-Host
 
-Function GetTimeStamp() {
-    Return [System.DateTime]::Now.ToString("yyyyMMddHHmm")
-}
-
-Function Log($message) {
-    $timest = $Script:timestamp
-    If ($timest -Eq $null) {
-        $Script:timestamp = GetTimeStamp
-        $timest = $Script:timestamp
-    }
-
-    $logged = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
-    Write-Host $logged
+function Log($message) {
+    $logmsg = "[$([System.DateTime]::Now.ToString("yyyy.MM.dd.HH:mm:ss"))] $($message)"
+    Write-Host $logmsg
 }
 
 [System.String[]]$quitCommand = @("q", "e", "c")
