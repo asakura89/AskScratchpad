@@ -28,9 +28,18 @@ Start-Sleep -Seconds 30
 
 @(
     "xconnect_collectionsearch\App_Data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe"
-    "xconnect_collectionsearch\App_Data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe -rr"
     "cortex_processing\App_Data\jobs\continuous\ProcessingEngine\Sitecore.ProcessingEngine.exe"
     "xconnect_marketingautomation\App_Data\jobs\continuous\AutomationEngine\maengine.exe"
+) |
+    Select-Object @{ Name = "Command"; Expression = { $($root) + $_ } } |
+    ForEach-Object {
+        Start-Process Powershell -ArgumentList "-NoExit -Command `"$($_.Command)`""
+    }
+
+Start-Sleep -Seconds 30
+
+@(
+    "xconnect_collectionsearch\App_Data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe -rr"
 ) |
     Select-Object @{ Name = "Command"; Expression = { $($root) + $_ } } |
     ForEach-Object {
