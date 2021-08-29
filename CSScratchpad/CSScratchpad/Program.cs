@@ -89,6 +89,7 @@ namespace CSScratchpad {
                 new TestXml(),
                 new WriteBinary(),
                 new WriteLicense(),
+                new WriteText(),
                 new ZipStructureViewer()
             }
             .Last()
