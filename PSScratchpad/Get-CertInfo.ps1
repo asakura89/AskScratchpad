@@ -21,7 +21,13 @@ function Log($message, $starting = $false, $writeToScreen = $true) {
 
 function GetInfo($path) {
     Return Get-ChildItem -Path $path |
-        Select-Object Subject, Issuer, FriendlyName, NotAfter, Thumbprint, EnhancedKeyUsageList |
+        Select-Object Subject, `
+            @{L="Dns"; E={$($_.Extensions | Where-Object {$_.Oid.FriendlyName -eq "subject alternative name"}).Format(1)} }, `
+            Issuer, `
+            FriendlyName, `
+            NotAfter, `
+            Thumbprint, `
+            EnhancedKeyUsageList |
         Format-List |
         Out-String
 }
