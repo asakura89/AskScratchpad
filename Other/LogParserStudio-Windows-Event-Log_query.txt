@@ -1,0 +1,71 @@
+SELECT TimeGenerated,
+SYSTEM_UTCOFFSET() as UTC_Offset,
+EventID,
+ComputerName,
+CASE EventID
+WHEN 4800 THEN SUBSTR(Message,0,26)
+WHEN 4801 THEN SUBSTR(Message,0,28)
+WHEN 4802 THEN SUBSTR(Message,0,28)
+WHEN 4803 THEN SUBSTR(Message,0,30)
+WHEN 4647 THEN SUBSTR(Message,0,21)
+WHEN 4648 THEN SUBSTR(Message,0,48)
+WHEN 4624 THEN SUBSTR(Message,0,38)
+WHEN 4625 THEN SUBSTR(Message,0,28)
+END as EventDesc,
+EXTRACT_TOKEN(Strings,1,'|') AS Domain, 
+RESOLVE_SID(EXTRACT_TOKEN(Strings,0,'|')) AS User, 
+EXTRACT_TOKEN(Strings,3,'|') AS SessionName,
+RESOLVE_SID(EXTRACT_TOKEN(Strings,4,'|')) AS ClientName,
+EXTRACT_TOKEN(Strings,5,'|') AS ClientAddress,
+Message
+FROM 'D:\Logon_Info.evtx'
+/*WHERE (EventID=4800 or EventID=4801 or EventID=4802 or EventID=4803 or EventID=4648 or EventID=4647) AND STRCNT(Message,’%USERNAME%’)=1*/
+/*WHERE EventID= -4663,-4660,-4688,-4798,-5058,-5061,-4673,-4799,4625,4624,4647 */
+
+
+
+
+SELECT
+TimeGenerated AS LocalTime,
+TO_STRING(SYSTEM_UTCOFFSET(), 'hh') AS UTCOffset,
+EventID,
+ComputerName,
+CASE EventID
+WHEN 4800 THEN SUBSTR(Message, 0, 26)
+WHEN 4801 THEN SUBSTR(Message, 0, 28)
+WHEN 4802 THEN SUBSTR(Message, 0, 28)
+WHEN 4803 THEN SUBSTR(Message, 0, 30)
+WHEN 4647 THEN SUBSTR(Message, 0, 21)
+WHEN 4648 THEN SUBSTR(Message, 0, 48)
+WHEN 4624 THEN SUBSTR(Message, 0, 38)
+WHEN 4625 THEN SUBSTR(Message, 0, 28)
+END AS EventDesc,
+EXTRACT_TOKEN(Strings, 1, '|') AS SubjectDomain,
+RESOLVE_SID(EXTRACT_TOKEN(Strings, 0, '|')) AS SubjectUser,
+SUBSTR(EXTRACT_TOKEN(Message, 2, 'Account Domain: '), 0, INDEX_OF(EXTRACT_TOKEN(Message, 2, 'Account Domain: '), ' ')) AS LogonAccountDomain,
+SUBSTR(EXTRACT_TOKEN(Message, 2, 'Account Name: '), 0, INDEX_OF(EXTRACT_TOKEN(Message, 2, 'Account Name: '), ' ')) AS LogonAccountName,
+SUBSTR(EXTRACT_TOKEN(Message, 1, 'Logon Type: '), 0, INDEX_OF(EXTRACT_TOKEN(Message, 1, 'Logon Type: '), ' ')) AS LogonType,
+Message
+FROM 'D:\Logon_Info.evtx'
+WHERE (
+    EventID=-4663 OR
+    EventID=-4660 OR
+    EventID=-4688 OR
+    EventID=-4798 OR
+    EventID=-5058 OR
+    EventID=-5061 OR
+    EventID=-4673 OR
+    EventID=-4799 OR
+    EventID=4625 OR
+    EventID=4624 OR
+    EventID=4647
+)
+
+
+/*
+
+Failed AD login Event Id
+
+5021 5057 5059
+
+*/

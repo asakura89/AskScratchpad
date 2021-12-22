@@ -11,3 +11,14 @@ Clear-Host
 } | 
 Format-List
 
+function GetScriptInfo() {
+    $scriptfile = (Get-Item $PSCommandPath)
+
+    Return @{
+        Name = $scriptfile.BaseName
+        FullName = $scriptfile.Name
+        Directory = $scriptfile.Directory
+    }
+}
+
+GetScriptInfo

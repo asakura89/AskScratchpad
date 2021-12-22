@@ -9,3 +9,9 @@ $(Get-ChildItem $files).ForEach({ $_.LastWriteTime = Get-Date })
 Write-Output $null > anotherfile.txt
 
 # ^ will output 1 kb file
+
+# Silencing output
+New-Item -ItemType File $files | Out-Null
+$null = New-Item -ItemType File $files
+[void](New-Item -ItemType File $files)
+
