@@ -324,6 +324,7 @@
     <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
+    <Compile Include="Script\TestArvy.cs" />
     <Compile Include="Script\WriteText.cs" />
     <Compile Include="Script\DisplayingList.cs" />
     <Compile Include="Script\EmitEvents.cs" />
@@ -341,7 +342,6 @@
     <Compile Include="Script\PrintDir.cs" />
     <Compile Include="Script\CheckPath.cs" />
     <Compile Include="Script\CombineXml.cs" />
-    <Compile Include="Script\CompareString.cs" />
     <Compile Include="Script\PrintLoadedAssemblies.cs" />
     <Compile Include="Script\PrintTable.cs" />
     <Compile Include="Script\RunCmd.cs" />
@@ -379,7 +379,6 @@
     <Compile Include="Script\CompareAsAndIs.cs" />
     <Compile Include="Script\BartSimpson.cs" />
     <Compile Include="Script\ChangeAspMembershipPassword.cs" />
-    <Compile Include="Script\PrintAssemblyVersion.cs" />
     <Compile Include="Script\DisectCakeBuild.cs" />
     <Compile Include="Script\CloneList.cs" />
     <Compile Include="Script\CleanUrl.cs" />
@@ -404,7 +403,6 @@
     <Compile Include="Script\TestExy.cs" />
     <Compile Include="Script\CountCharacter.cs" />
     <Compile Include="Script\TestVarya.cs" />
-    <Compile Include="Script\TestArvy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
