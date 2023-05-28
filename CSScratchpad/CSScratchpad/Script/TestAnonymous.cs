@@ -4,8 +4,21 @@ using Scratch;
 namespace CSScratchpad.Script {
     class TestAnonymous : Common, IRunnable {
         public void Run() {
-            MethodWithAnonParam(new {Id = "99r7", Name = "heyyhoo"});
-            MethodWithAnonParam(new StrongTypeParam("99r7", "heyyhoo"));
+            /*
+            List<int> numbers = new List<int> { 1, 2, 3, 4 };
+            numbers.Append(5);
+
+            string.Join(", ", numbers).Dump();
+
+            string.Join(", ", numbers.Append(5)).Dump();
+
+            List<int> newNumbers = numbers.Append(5).ToList();
+
+            string.Join(", ", newNumbers).Dump();
+
+            //MethodWithAnonParam(new {Id = "99r7", Name = "heyyhoo"});
+            //MethodWithAnonParam(new StrongTypeParam("99r7", "heyyhoo"));
+            */
         }
 
         private void MethodWithAnonParam(Object param) {

@@ -29,7 +29,6 @@
     "editor.minimap.enabled": false,
     "editor.minimap.maxColumn": 20,
     "editor.renderControlCharacters": true,
-    "editor.renderIndentGuides": true,
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "boundary",
     "editor.stablePeek": true,
@@ -206,6 +205,7 @@
     "search.searchOnType": false,
     "search.showLineNumbers": true,
     "workbench.colorTheme": "Plastic",
-    "workbench.editor.pinnedTabSizing": "shrink"
+    "workbench.editor.pinnedTabSizing": "shrink",
+    "editor.guides.indentation": true
   }
 }
