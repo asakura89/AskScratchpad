@@ -29,7 +29,7 @@ local.properties
 .svn/
 
 # > VisualStudio
-# VS 2015 and VS Code
+# > VS 2015 and VS Code
 .vscode/
 .vs/
 .vscode/**/*.*
@@ -38,6 +38,7 @@ local.properties
 
 # > VisualStudio Publish Profile
 [Pp]ublish[Pp]rofiles/
+*.[Pp]ublish.xml
 
 # > VisualStudio User-specific files
 *.suo
@@ -80,6 +81,7 @@ dlldata.c
 project.lock.json
 artifacts/
 
+# > C/C++
 *_i.c
 *_p.c
 *_i.h
@@ -202,7 +204,7 @@ csx/
 # > Windows Store app package directory
 AppPackages/
 
-# > Others
+# > Possibly .NET
 sql/
 *.Cache
 ClientBin/
@@ -210,12 +212,9 @@ ClientBin/
 ~$*
 *~
 *.dbmdl
-*.[Pp]ublish.xml
 *.pfx
 *.publishsettings
 *.dbproj.schemaview
-node_modules/
-bower_components/
 orleans.codegen.cs
 
 # > RIA/Silverlight projects
@@ -291,6 +290,11 @@ sdist/
 develop-eggs/
 .installed.cfg
 
+# > Modern Javascript
+node_modules/
+bower_components/
+npm-debug.log
+
 # > Installer logs
 pip-log.txt
 
@@ -301,13 +305,32 @@ pip-log.txt
 # > Translations
 *.mo
 
+# > Svelte/Sveltekit
+/build
+/.svelte-kit
+/package
+.env
+.env.*
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# > Yarn
+.yarn
+
 # > Custom
+# > Project spesific
 tools/
 cakebuild-log.txt
 build-log.txt
 *-log.txt
 *log.txt
+wwwroot/
+!build.cmd
+!publish.cmd
+!.vscode/
+!.vscode/**/*.*
 
-# > Project spesific
+# > This project specific
 !**/CSScratchpad/Data/*
 !SQLScratchpad/Data/*
