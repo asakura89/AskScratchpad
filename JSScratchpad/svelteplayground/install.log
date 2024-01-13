@@ -52,3 +52,25 @@ Next steps:
 To close the dev server, hit Ctrl-C
 
 Stuck? Visit us at https://svelte.dev/chat
+
+
+yarn install
+➤ YN0000: ┌ Resolution step
+➤ YN0032: │ fsevents@npm:2.3.3: Implicit dependencies on node-gyp are discouraged
+➤ YN0000: └ Completed in 9s 753ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ which@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ wrap-ansi@npm:7.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ wrap-ansi@npm:8.1.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ wrappy@npm:1.0.2 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ yallist@npm:4.0.0 can't be found in the cache and will be fetched from the remote registry
+➤ YN0000: └ Completed in 12s 396ms
+➤ YN0000: ┌ Link step
+➤ YN0000: │ ESM support for PnP uses the experimental loader API and is therefore experimental
+➤ YN0007: │ svelte-preprocess@npm:5.1.3 [fc3b0] must be built because it never has been before or the last one failed
+➤ YN0007: │ esbuild@npm:0.19.11 must be built because it never has been before or the last one failed
+➤ YN0007: │ @sveltejs/kit@npm:2.3.2 [1863c] must be built because it never has been before or the last one failed
+➤ YN0009: │ @sveltejs/kit@npm:2.3.2 [1863c] couldn't be built successfully (exit code 1, logs can be found here: C:\Users\ASMNetworkLabUsr\AppData\Local\Temp\xfs-398289ae\build.log)
+➤ YN0000: └ Completed in 3s 84ms
+➤ YN0000: Failed with errors in 25s 283ms
+
