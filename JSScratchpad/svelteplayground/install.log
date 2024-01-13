@@ -1,0 +1,54 @@
+nvm list
+
+    18.17.1
+    16.20.2
+  * 14.21.3 (Currently using 64-bit executable)
+    12.22.12
+    10.24.1
+
+node --version
+v14.21.3
+
+corepack --version
+0.10.0
+
+corepack prepare yarn@3.6.4 --activate
+Preparing yarn@3.6.4 for immediate activation...
+
+yarn --version
+3.6.4
+
+npm create svelte@latest svelteplayground
+
+npx: installed 7 in 10.792s
+
+create-svelte version 6.0.6
+
+T  Welcome to SvelteKit!
+|
+o  Which Svelte app template?
+|  Skeleton project
+|
+o  Add type checking with TypeScript?
+|  Yes, using TypeScript syntax
+|
+o  Select additional options (use arrow keys/space bar)
+|  none
+|
+—  Your project is ready!
+
+✔ Typescript
+  Inside Svelte components, use <script lang="ts">
+
+Install community-maintained integrations:
+  https://github.com/svelte-add/svelte-add
+
+Next steps:
+  1: cd svelteplayground
+  2: npm install
+  3: git init && git add -A && git commit -m "Initial commit" (optional)
+  4: npm run dev -- --open
+
+To close the dev server, hit Ctrl-C
+
+Stuck? Visit us at https://svelte.dev/chat

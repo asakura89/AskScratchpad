@@ -1,0 +1,60 @@
+npm init
+
+nvm list
+
+    18.17.1
+    16.20.2
+  * 14.21.3 (Currently using 64-bit executable)
+    12.22.12
+    10.24.1
+
+node --version
+v14.21.3
+
+npm install -g corepack@0.10.0
+C:\Program Files\nodejs\yarn -> C:\Program Files\nodejs\node_modules\corepack\dist\yarn.js
+C:\Program Files\nodejs\pnpx -> C:\Program Files\nodejs\node_modules\corepack\dist\pnpx.js
+C:\Program Files\nodejs\pnpm -> C:\Program Files\nodejs\node_modules\corepack\dist\pnpm.js
+C:\Program Files\nodejs\corepack -> C:\Program Files\nodejs\node_modules\corepack\dist\corepack.js   
+C:\Program Files\nodejs\yarnpkg -> C:\Program Files\nodejs\node_modules\corepack\dist\yarnpkg.js     
++ corepack@0.10.0
+updated 1 package in 0.809s
+
+
+corepack prepare yarn@3.6.4 --activate
+Preparing yarn@3.6.4 for immediate activation...
+Internal Error: EPERM: operation not permitted, rename 'C:\Users\ASMNetworkLabUsr\.node\corepack\corepack-25800-60d04495.588d9' -> 'C:\Users\ASMNetworkLabUsr\.node\corepack\yarn\3.6.4'
+Error: EPERM: operation not permitted, rename 'C:\Users\ASMNetworkLabUsr\.node\corepack\corepack-25800-60d04495.588d9' -> 'C:\Users\ASMNetworkLabUsr\.node\corepack\yarn\3.6.4'
+
+. . . manually copy paste the folder and rename as intended . . .
+
+
+corepack prepare yarn@3.6.4 --activate
+Preparing yarn@3.6.4 for immediate activation...
+
+yarn --version
+3.6.4
+
+yarn add typescript --dev 
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed in 0s 280ms
+➤ YN0000: ┌ Fetch step
+➤ YN0013: │ typescript@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0013: │ typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=29ae49 can't be found in the cache and will be f
+➤ YN0013: │ typescript@npm:5.3.3 can't be found in the cache and will be fetched from the remote registry
+➤ YN0066: │ typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=29ae49: Cannot apply hunk #11
+➤ YN0000: └ Completed in 10s 777ms
+➤ YN0000: ┌ Link step
+➤ YN0031: │ One or more node_modules have been detected and will be removed. This operation may take some time.
+➤ YN0000: └ Completed
+➤ YN0000: Done with warnings in 11s 108ms
+
+
+yarn run tsc --init
+
+. . . modify tsconfig.json as needed . . .
+
+
+yarn run tsc
+
+yarn run tsc -w
