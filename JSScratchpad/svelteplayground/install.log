@@ -346,3 +346,38 @@ Forced re-optimization of dependencies
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
   ➜  press h + enter to show help
+
+
+
+yarn run build
+vite v5.0.11 building SSR bundle for production...
+✓ 75 modules transformed.
+vite v5.0.11 building for production...
+✓ 60 modules transformed.
+.svelte-kit/output/client/_app/version.json                             0.03 kB │ gzip:  0.05 kB
+.svelte-kit/output/client/.vite/manifest.json                           2.07 kB │ gzip:  0.41 kB
+.svelte-kit/output/client/_app/immutable/entry/start.o5FcLSqQ.js        0.07 kB │ gzip:  0.08 kB
+.svelte-kit/output/client/_app/immutable/nodes/0.Wmsb_FdA.js            0.60 kB │ gzip:  0.39 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.CeCKoIp7.js            0.97 kB │ gzip:  0.57 kB
+.svelte-kit/output/client/_app/immutable/chunks/scheduler.k512rgSQ.js   2.16 kB │ gzip:  1.02 kB
+.svelte-kit/output/client/_app/immutable/nodes/2.evwEOVQw.js            3.75 kB │ gzip:  1.68 kB
+.svelte-kit/output/client/_app/immutable/chunks/index.10JiyVOY.js       5.69 kB │ gzip:  2.39 kB
+.svelte-kit/output/client/_app/immutable/entry/app.QUDs47js.js          5.96 kB │ gzip:  2.41 kB
+.svelte-kit/output/client/_app/immutable/chunks/entry.A0WLFU-t.js      25.75 kB │ gzip: 10.35 kB
+✓ built in 499ms
+.svelte-kit/output/server/.vite/manifest.json                  1.39 kB
+.svelte-kit/output/server/entries/fallbacks/layout.svelte.js   0.24 kB
+.svelte-kit/output/server/internal.js                          0.25 kB
+.svelte-kit/output/server/entries/fallbacks/error.svelte.js    1.18 kB
+.svelte-kit/output/server/entries/pages/_page.svelte.js        1.38 kB
+.svelte-kit/output/server/chunks/ssr.js                        3.95 kB
+.svelte-kit/output/server/chunks/internal.js                   5.94 kB
+.svelte-kit/output/server/chunks/exports.js                    5.96 kB
+.svelte-kit/output/server/index.js                            92.22 kB
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-auto
+  Could not detect a supported production environment. See https://kit.svelte.dev/docs/adapters to learn how to configure your app to run on the platform of your choosing
+  ✔ done
+✓ built in 4.06s
