@@ -42,14 +42,14 @@ type temp struct {
 }
 
 func main() {
-    b := B{}
+    b := New() //B{}
     keyExist := b.ContainsKey("temp")
     val := b.Get("temp")
 
     fmt.Println(keyExist)
     fmt.Println(val)
 
-    b.Add("temp", &temp {
+    _ = b.Add("temp", &temp {
         TempPropA: "hello",
         TempPropB: 8,
     })
@@ -59,14 +59,13 @@ func main() {
 
     fmt.Println(keyExist)
     fmt.Println(val)
-
 }
 
 type B struct {
     internalStorage map[string]interface{}
 }
 
-func (b *B) New() *B {
+func New() *B {
     return &B {
         internalStorage: make(map[string]interface{}),
     }
