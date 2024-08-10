@@ -14,6 +14,7 @@ func main() {
 }
 */
 
+/*
 import (
     "fmt"
 )
@@ -28,4 +29,67 @@ type A struct {}
 
 func (a *A) SomeFunc() (int32) {
     return 46692016
+}
+*/
+
+import (
+    "fmt"
+)
+
+type temp struct {
+    TempPropA string
+    TempPropB int
+}
+
+func main() {
+    b := B{}
+    keyExist := b.ContainsKey("temp")
+    val := b.Get("temp")
+
+    fmt.Println(keyExist)
+    fmt.Println(val)
+
+    b.Add("temp", &temp {
+        TempPropA: "hello",
+        TempPropB: 8,
+    })
+
+    keyExist = b.ContainsKey("temp")
+    val = b.Get("temp")
+
+    fmt.Println(keyExist)
+    fmt.Println(val)
+
+}
+
+type B struct {
+    internalStorage map[string]interface{}
+}
+
+func (b *B) New() *B {
+    return &B {
+        internalStorage: make(map[string]interface{}),
+    }
+}
+
+func (b *B) Add(key string, value interface{}) (bool) {
+    if b.ContainsKey(key) {
+        return false
+    }
+
+    b.internalStorage[key] = value
+    return true
+}
+
+func (b *B) Get(key string) (interface{}) {
+    if !b.ContainsKey(key) {
+        return nil
+    }
+
+    return b.internalStorage[key]
+}
+
+func (b *B) ContainsKey(key string) (bool) {
+    _, ok := b.internalStorage[key]
+    return ok
 }
