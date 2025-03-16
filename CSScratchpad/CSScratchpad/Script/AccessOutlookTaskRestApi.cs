@@ -54,6 +54,7 @@ namespace CSScratchpad.Script {
                     res = GetHttpContentWithToken(System.Net.Http.HttpMethod.Get, "https://graph.microsoft.com/beta/me/outlook/tasks", authResult).Result.Dump();
                     res.Content.ReadAsStringAsync().Result.Dump();
 
+                    // res = GetHttpContentWithToken(System.Net.Http.HttpMethod.Get, "https://graph.microsoft.com/beta/users/ditaadisubrata%40outlook.com/outlook/tasks", authResult).Result.Dump();
                     res = GetHttpContentWithToken(System.Net.Http.HttpMethod.Get, "https://graph.microsoft.com/beta/users/${useremail}/outlook/tasks", authResult).Result.Dump();
                     res.Content.ReadAsStringAsync().Result.Dump();
 

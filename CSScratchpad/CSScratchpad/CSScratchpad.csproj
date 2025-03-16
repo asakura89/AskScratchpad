@@ -95,6 +95,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.14.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.14.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Registry.4.5.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
     </Reference>
@@ -133,6 +136,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -334,11 +338,13 @@
     <Compile Include="Script\AccessOutlookTaskRestApi.cs" />
     <Compile Include="Script\ApplicationPipeline.cs" />
     <Compile Include="Script\ArrayMethods.cs" />
+    <Compile Include="Script\AccessOutlookTaskRestApi.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
     <Compile Include="Script\AnalyzeHex.cs" />
     <Compile Include="Script\TestArvy.cs" />
     <Compile Include="Script\WriteText.cs" />
     <Compile Include="Script\DisplayingList.cs" />
+    <Compile Include="Script\EventHandling.cs" />
     <Compile Include="Script\EmitEvents.cs" />
     <Compile Include="Script\FormatJson4.cs" />
     <Compile Include="Script\Motoko.cs" />

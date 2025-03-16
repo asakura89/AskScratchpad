@@ -10,6 +10,8 @@ namespace CSScratchpad {
         public static void Main(String[] args) {
             new List<IRunnable> {
                 new AnalyzeHex(),
+                new ApplicationPipeline(),
+                new ArrayMethods(),
                 new BartSimpson(),
                 new Base64UrlAndJwtBase64(),
                 new ChangeAspMembershipPassword(),
@@ -26,12 +28,15 @@ namespace CSScratchpad {
                 new CountCharacter(),
                 new CountDecimalPlaces(),
                 new DisectCakeBuild(),
+
+                new DisplayingList(),
                 new EmitEvents(),
                 new FindDuplicates(),
                 new FindFiles(),
                 new FormatJson(),
                 new FormatJson2(),
                 new FormatJson3(),
+                new FormatJson4(),
                 new GenerateId(),
                 new GenerateMD5Base64(),
                 new GenerateRandomizedList(),
@@ -39,7 +44,10 @@ namespace CSScratchpad {
                 new GenerateToken(),
                 new GetProperties(),
                 new HostAConfiguredWebApi(),
+                new HostAWcf(),
                 new HostAWebApi(),
+                new ManipulateString(),
+                new Motoko(),
                 new PrintAssemblyVersion(),
                 new PrintCharCode(),
                 new PrintDir(),
@@ -56,8 +64,10 @@ namespace CSScratchpad {
                 new PrintTable(),
                 new PrintTodoList(),
                 new PrintTree(),
+                new PrintTypeFullName(),
                 new PrintUri(),
                 new ReadAppConfigSection(),
+                new ReplicateAspMvcDownload(),
                 // new RunCmd(), // [NEED TO BE FIXED]
                 new SelfHostAspWebApi(),
                 new SelfHostTheWcf(),
@@ -78,8 +88,11 @@ namespace CSScratchpad {
                 new TestQueryCrafter(),
                 new TestSecurity(),
                 new TestShiro(),
+                new TestTryParse(),
                 new TestVarya(),
                 new TestXml(),
+                new WriteBinary(),
+                new WriteLicense(),
                 new ZipStructureViewer()
             }
             .Last()
