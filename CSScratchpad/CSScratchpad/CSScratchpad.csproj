@@ -61,6 +61,9 @@
     <Reference Include="DotNetZip, Version=1.13.5.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
       <HintPath>..\packages\DotNetZip.1.13.5\lib\net40\DotNetZip.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.14.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.14.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Iced, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5baba79f4264913b, processorArchitecture=MSIL">
       <HintPath>..\packages\Iced.1.8.0\lib\net45\Iced.dll</HintPath>
     </Reference>
@@ -128,6 +131,10 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.FileVersionInfo.4.3.0\lib\net46\System.Diagnostics.FileVersionInfo.dll</HintPath>
       <Private>True</Private>
@@ -256,6 +263,7 @@
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -268,6 +276,9 @@
     <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
@@ -320,6 +331,7 @@
     <Compile Include="Others\Task\TaskModel.cs" />
     <Compile Include="Others\Task\TaskService.cs" />
     <Compile Include="Others\Turkey\WildTurkey.cs" />
+    <Compile Include="Script\AccessOutlookTaskRestApi.cs" />
     <Compile Include="Script\ApplicationPipeline.cs" />
     <Compile Include="Script\ArrayMethods.cs" />
     <Compile Include="Script\Base64UrlAndJwtBase64.cs" />
@@ -350,6 +362,8 @@
     <Compile Include="Script\PrintLookup.cs" />
     <Compile Include="Script\GenerateRandomizedList.cs" />
     <Compile Include="Script\PrintCharCode.cs" />
+    <Compile Include="Script\SelfHostAspWebApi.cs" />
+    <Compile Include="Script\SelfHostTheWcf.cs" />
     <Compile Include="Script\ReplicateAspMvcDownload.cs" />
     <Compile Include="Script\ManipulateString.cs" />
     <Compile Include="Script\HostAWcf.cs" />
@@ -362,6 +376,7 @@
     <Compile Include="Script\TestBitwise.cs" />
     <Compile Include="Script\TestConfigy.cs" />
     <Compile Include="Script\TestShiro.cs" />
+    <Compile Include="Script\TestQueryCrafter.cs" />
     <Compile Include="Script\TestXml.cs" />
     <Compile Include="Script\TestMaaya.cs" />
     <Compile Include="Script\TestSecurity.cs" />
